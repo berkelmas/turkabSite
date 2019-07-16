@@ -1,0 +1,250 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>SUNE || Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- ================= Favicon ================== -->
+    <link rel="icon" type="image/png" sizes="192x192"  href="images/favicon/android-icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-icon-72x72.png">
+    <link rel="icon" sizes="72x72" href="images/favicon/android-icon-72x72.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png">
+
+    <!--Google Font-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <!-- Font Awesome css-->
+    <link rel="stylesheet" href="{% static 'mainapp/css/font-awesome.min.css' %}">
+    <!--Ion Icon-->
+    <link rel="stylesheet" href="{% static 'mainapp/css/ionicons.min.css' %}">
+    <!-- Bootsrap css-->
+    <link rel="stylesheet" href="{% static 'mainapp/css/bootstrap.min.css' %}">
+    <!-- Bootsrap Date Time Picker-->
+    <link rel="stylesheet" href="{% static 'mainapp/css/bootstrap-datetimepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'mainapp/css/bootstrap-datetimepicker-standalone.css' %}">
+    <!-- Round Slider css-->
+    <link rel="stylesheet" href="{% static 'mainapp/css/roundslider.css' %}">
+    <!-- Magnific Popup css-->
+    <link rel="stylesheet" href="{% static 'mainapp/css/magnific-popup.css' %}">
+    <!-- Countdown css-->
+    <link rel="stylesheet" href="{% static 'mainapp/css/jquery.countdown.css' %}">
+    <!-- Menuzord -->
+    <link rel="stylesheet" href="{% static 'mainapp/css/menuzord.css' %}">
+    <link rel="stylesheet" href="{% static 'mainapp/css/menuzord-animations.css' %}">
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="{% static 'mainapp/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'mainapp/css/owl.theme.min.css' %}">
+    <!-- Style-->
+    <link rel="stylesheet" href="{% static 'mainapp/css/style.css' %}">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="{% static 'mainapp/css/responsive.css' %}">
+    <!-- Modernizr-->
+    <script src="{% static 'mainapp/js/modernizr-2.8.3.min.js' %}"></script>
+</head>
+<body>
+    <div id="loading">
+        <div id="loading-center">
+            <div id="loading-center-absolute">
+                <div class="object" id="object_one"></div>
+                <div class="object" id="object_two"></div>
+                <div class="object" id="object_three"></div>
+                <div class="object" id="object_four"></div>
+                <div class="object" id="object_five"></div>
+                <div class="object" id="object_six"></div>
+                <div class="object" id="object_seven"></div>
+                <div class="object" id="object_eight"></div>
+            </div>
+        </div>
+    </div>
+    <header>
+        <div class="top-bar-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="logo">
+                            <a href="index.html"><img src="{% static 'mainapp/images/home/logo.png' %}" alt="logo" /></a>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="text-right">
+                            <a href="#" class="doante-button orange-bg">
+                                <span>PLEASE MAKE YOUR</span>
+                                DONATION
+                            </a>
+                            <a href="#" class="doante-button yellow-bg">
+                                <span>TIME TO BECOME A</span>
+                                VOLUNTEER
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-area ash-white-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <nav id="menuzord" class="menuzord">
+                           <ul class="menuzord-menu">
+                               <li><a href="{% url 'index' %}" {% if nbar == 'index' %} class="active" {% endif %} >Ana Sayfa</a></li>
+                               <li><a href="{% url 'about' %}" {% if nbar == 'about' %} class="active" {% endif %}>Hakkımızda</a>
+                                  <ul class="dropdown">
+                                    <li><a href="{% url 'baskaninmesaji' %}">Başkanın Mesajı</a></li>
+                                  </ul>
+                               </li>
+                               <li><a>ÜYELERİMİZ</a>
+                                   <ul class="dropdown">
+                                     {% for uye in uyeler %}
+                                       <li><a href="/uye/{{ uye.uye_slug }}">{{uye.uye_name}}</a></li>
+                                     {% endfor %}
+                                   </ul>
+                               </li>
+                               <li ><a href="contact-us.html">KURULLAR</a></li>
+                               <li><a href="#">ÜYELİK BAŞVURUSU</a></li>
+                               <li ><a href="contact-us.html">İLETİŞİM</a></li>
+                           </ul>
+                       </nav>
+
+                    </div>
+                    <div class="col-md-3">
+                        <div class="social-icon text-right">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook-official"></i></a></li>
+
+                                <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    {% block body %}
+
+    {% endblock %}
+
+
+     <footer class="main-footer-area">
+        <div class="footer-adderess-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="footer-logo">
+                            <a href="#"><img src="{% static 'mainapp/images/home/footer-logo.png' %}" class="img-responsive" alt="logo"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="footer-address text-right">
+                            <p>Donec venenatis metus at diam condimentum pretiuteger aliquet a turpis quis pel len tesque  ueta turpis quis venenatissolelementum </p>
+                            <ul>
+                                <li><i class="fa fa-map-marker"></i> Albrata Street, 23/D-2, Building, CA, US </li>
+                                <li><i class="ion-iphone"></i> +11 (09) 876543 </li>
+                                <li><i class="ion-forward"></i> support@domian.com </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-important-link">
+                            <h4 class="orange">IMPORTANT LINKS</h4>
+                            <ul>
+                                <li><a href="#">ABOUT US</a></li>
+                                <li><a href="#">COMPANY PROFILE</a></li>
+                                <li><a href="#">LEGAL POLICY</a></li>
+                                <li><a href="#">COPYRIGHT ISSUES</a></li>
+                                <li><a href="#">GLOBAL OFFICES</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-update-news">
+                        <h4 class="orange">GLOBAL UPDATE NEWS </h4>
+                            <ul>
+                                <li><i class="ion-social-youtube"></i><a href="#">100 CHILDREN RESCUE FROM WAR ZONE</a></li>
+                                <li><i class="ion-document-text"></i><a href="#"> PEOPLE DIE IN THE WEST LIKE BEFORE EAST</a></li>
+                                <li><i class="ion-log-in"></i><a href="#">AWARENESS CAMPAIGN IS GOING CRAZY</a></li>
+                                <li><i class="ion-social-youtube"></i><a href="#">WHAT HAPPEN WHEN WE LIVE!</a></li>
+                                <li><i class="ion-document-text"></i><a href="#">AWARENESS CAMPAIGN IS GOING CRAZY</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-12">
+                        <div class="footer-gallery">
+                            <h4 class="orange">PHOTO GALLERY</h4>
+                            <ul>
+                                <li><a href="#"><img src="{% static 'mainapp/images/footer/1.jpg' %}" class="img-responsive" alt="gallery"></a></li>
+                                <li><a href="#"><img src="{% static 'mainapp/images/footer/2.jpg' %}" class="img-responsive" alt="gallery"></a></li>
+                                <li><a href="#"><img src="{% static 'mainapp/images/footer/3.jpg' %}" class="img-responsive" alt="gallery"></a></li>
+                                <li><a href="#"><img src="{% static 'mainapp/images/footer/4.jpg' %}" class="img-responsive" alt="gallery"></a></li>
+                                <li><a href="#"><img src="{% static 'mainapp/images/footer/5.jpg' %}" class="img-responsive" alt="gallery"></a></li>
+                                <li><a href="#"><img src="{% static 'mainapp/images/footer/6.jpg' %}" class="img-responsive" alt="gallery"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-lg-push-6">
+                        <div class="footer-social-icon text-right">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-lg-pull-6">
+                        <div class="copy-right-text">
+                            TÜRKAB - Türk Kadın Akademisyenler Birliği - 2019
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    	<!-- == jQuery Librery == -->
+        <script src="{% static 'mainapp/js/jquery-2.2.4.min.js' %}"></script>
+    	<!-- == Bootsrap js File == -->
+        <script src="{% static 'mainapp/js/bootstrap.min.js' %}"></script>
+    	<!-- == OWl carousel == -->
+        <script src="{% static 'mainapp/js/owl.carousel.min.js' %}"></script>
+    	<!-- == Menuzord == -->
+        <script src="{% static 'mainapp/js/menuzord.js' %}"></script>
+        <!-- == Magnific Popup == -->
+        <script src="{% static 'mainapp/js/jquery.magnific-popup.min.js' %}"></script>
+        <!-- == Countdown == -->
+        <script src="{% static 'mainapp/js/jquery.plugin.js' %}"></script>
+        <script src="{% static 'mainapp/js/jquery.countdown.min.js' %}"></script>
+    	<!-- == Round Slider == -->
+        <script src="{% static 'mainapp/js/roundslider.js' %}"></script>
+        <script src="{% static 'mainapp/js/colorfull-progressbar.js' %}"></script>
+        <!-- == Bootstrap Date Time Picker == -->
+        <script src="{% static 'mainapp/js/moment.js' %}"></script>
+        <script src="{% static 'mainapp/js/bootstrap-datetimepicker.min.js' %}"></script>
+        <!-- == RateYo == -->
+        <script src="{% static 'mainapp/js/jquery.rateyo.js' %}"></script>
+        <!-- == Barfiller == -->
+        <script src="{% static 'mainapp/js/jquery.barfiller.js' %}"></script>
+    	<!-- == custom Js File == -->
+        <script src="{% static 'mainapp/js/custom.js' %}"></script>
+    </body>
+    </html>

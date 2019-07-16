@@ -1,0 +1,207 @@
+{% extends 'mainapp/components/layout.html' %}
+{% load static %}
+
+{% block body %}
+
+<section class="banner-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="banner-title">
+                    <h1>TÜRKAB HAKKINDA <span>TÜRK KADIN AKADEMİSYENLER BİRLİĞİ</span></h1>
+                </div>
+                <ul class="bread-crumb">
+                    <li><a href="{% url 'index' %}">Ana Sayfa</a></li>
+                    <li><a href="{% url 'about' %}" class="active orange">Hakkımızda</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="know-me-about-us pdb80 ash-white-bg">
+    <div class="container">
+        <div class="section-heading section-padding">
+            <h2><span>Daha Fazlası</span>Hakkımızda</h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="about-us">
+                    <h3>Hakkımızda</h3>
+                    <p>
+                      TÜRKAB kadın akademisyenlerden oluşan bir sivil toplum kuruluşudur.
+                    </p>
+                    <h3 class="orange">GÖREV</h3>
+                    <p>
+                      TÜRKAB, Türkiye Cumhuriyeti Devleti’nin temel ilkelerine bağlı, devletine,
+                      milletine ve insanlığa hizmet etmeyi gaye edinen kadın akademisyenlerin oluşturduğu bir sivil
+                      toplum kuruluşudur.
+                      Birlik, Türk akademi dünyasında yer alan kadınlarımızın sahip olduğu bilimsel,
+                      sosyal ve kültürel yetkinlikleri ülke ihtiyaçları ve ilkelerimiz doğrultusunda kamu yararını
+                      gözeterek fayda üreten bir kaynağa dönüştürmeyi, disiplinlerarası bilimsel birikimi toplum
+                      yararına sunma konusunda sürekli yeni yollar geliştirmeyi ve dünyadaki Türk kadın
+                      akademisyenler arasındaki bağı güçlendirmeyi esas almıştır.
+                    </p>
+                    <h3 class="yellow">HEDEF</h3>
+                    <p>
+                      Birliğimiz yeni kuşaklara faydalı olmayı ve bilgisini üretime dönüştürmeye inanmış,
+                      etkin iletişim becerilerine sahip, liyakati esas alan, sorunlara çözüm odaklı yaklaşan, tarafsız,
+                      güvenilir, paylaşımcı ve güçlü kadın akademisyen modelini akademik hayatın her aşamasında
+                      motivasyon modeli olarak sunmayı hedeflerken; akademisyenler arasındaki bağı
+                      güçlendirmeyi, ülkenin her alanında sahip olduğu farklı disiplinlerde sosyal sorumluluk
+                      projeleri yürütmeyi, bilimsel ve akademik etkinlikler düzenlemeyi ve ulusal/uluslararası
+                      projeler gerçekleştirmeyi de gaye edinmiştir.
+                    </p>
+
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="urgent-causes-image">
+                    <div class="images big-image">
+                        <img src="{% static 'mainapp/images/home/3.jpg' %}" class="img-responsive img-circle" alt="causes">
+                    </div>
+                    <div class="images middum-image">
+                        <img src="{% static 'mainapp/images/home/2.jpg' %}" class="img-responsive img-circle" alt="causes">
+                    </div>
+                    <div class="images small-image">
+                        <img src="{% static 'mainapp/images/home/4.jpg' %}" class="img-responsive img-circle" alt="causes">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!--/.know-me-about-us-->
+
+<section class="get-envolved-area ">
+    <div class="container">
+        <div class="section-heading section-padding">
+             <h2><span>İlkelerimiz</span>Değerlerimiz</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="get-envolved-item first-item">
+                    <div class="envolped-top">
+                        <div class="text"><span>TARAFSIZ</span></div>
+                    </div>
+                    <div class="content">
+                        <h3>TARAFSIZ </h3>
+                        <p>Türk Kadın Akademisyenler Birliği olarak tarafsızız.</p>
+                    </div>
+                </div><!--/.get-envolved-item-->
+            </div>
+            <div class="col-md-4">
+                <div class="get-envolved-item first-item">
+                    <div class="envolped-top">
+                        <div class="text"><span>BİLİMSEL</span></div>
+                    </div>
+                    <div class="content">
+                        <h3>BİLİMSEL </h3>
+                        <p>TÜRKAB için bilimsellik ve sorgulayıcılık temel ilkelerdendir.</p>
+                    </div>
+                </div><!--/.get-envolved-item-->
+            </div>
+            <div class="col-md-4">
+                <div class="get-envolved-item first-item">
+                    <div class="envolped-top">
+                        <div class="text"><span>LİYAKAT </span></div>
+                    </div>
+                    <div class="content">
+                        <h3><a href="#">LİYAKAT </a></h3>
+                        <p>TÜRKAB için liyakat en önemli unsurlardandır.</p>
+                    </div>
+                </div><!--/.get-envolved-item-->
+            </div>
+            <div class="col-md-4">
+                <div class="get-envolved-item first-item">
+                    <div class="envolped-top">
+                        <div class="text"><span>YENİLİKÇİ </span></div>
+                    </div>
+                    <div class="content">
+                        <h3><a href="#">YENİLİKÇİ </a></h3>
+                        <p>TÜRKAB'ın temel ilkelerinden birisi de yenilikçi olmasıdır.</p>
+                    </div>
+                </div><!--/.get-envolved-item-->
+            </div>
+            <div class="col-md-4">
+                <div class="get-envolved-item second-item">
+                    <div class="envolped-top">
+                        <div class="text"><span>PAYLAŞIMCI </span></div>
+                    </div>
+                    <div class="content">
+                        <h3>PAYLAŞIMCI </h3>
+                        <p>TÜRKAB üyeleri ekip arkadaşlarına karşı paylaşımcılardır.</p>
+                    </div>
+                </div><!--/.get-envolved-item-->
+            </div>
+            <div class="col-md-4">
+                <div class="get-envolved-item third-item">
+                    <div class="envolped-top">
+                        <div class="text"><span>ÇALIŞKAN </span></div>
+                    </div>
+                    <div class="content">
+                        <h3><a href="#">ÇALIŞKAN </a></h3>
+                        <p>Türk Kadın Akademisyenler Birliği üyeleri yaptıkları işlerde çalışkandırlar.</p>
+                    </div>
+                </div><!--/.get-envolved-item-->
+            </div>
+            <div class="col-md-4">
+                <div class="get-envolved-item third-item">
+                    <div class="envolped-top">
+                        <div class="text"><span>KAMU YARARI </span></div>
+                    </div>
+                    <div class="content">
+                        <h3><a href="#">KAMU YARARI </a></h3>
+                        <p>Türk Kadın Akademisyenler Birliği üyeleri kamusal yararı ön planda tutar.</p>
+                    </div>
+                </div><!--/.get-envolved-item-->
+            </div>
+            <div class="col-md-4">
+                <div class="get-envolved-item third-item">
+                    <div class="envolped-top">
+                        <div class="text"><span>EVRENSEL </span></div>
+                    </div>
+                    <div class="content">
+                        <h3><a href="#">EVRENSEL </a></h3>
+                        <p>TÜRKAB üyeleri evrensel değerleri göz önüne alarak çalışırlar.</p>
+                    </div>
+                </div><!--/.get-envolved-item-->
+            </div>
+            <div class="col-md-4">
+                <div class="get-envolved-item third-item">
+                    <div class="envolped-top">
+                        <div class="text"><span>KATILIMCI </span></div>
+                    </div>
+                    <div class="content">
+                        <h3><a href="#">KATILIMCI </a></h3>
+                        <p>TÜRKAB üyeleri faydalı olabilecekleri durumlarda katılımcı ve birleştiricilerdir.</p>
+                    </div>
+                </div><!--/.get-envolved-item-->
+            </div>
+
+        </div>
+    </div>
+</section><!--/.get-envolved-area-->
+
+<section class="partner-area ash-white-bg pdb30">
+    <div class="container">
+        <div class="heading">
+             <h3>Ekibimiz</h3>
+             <h4>Yönetim Kurulu</h4>
+             <ul>
+               <li><strong>Başkan</strong> Prof. Dr. Muallâ UYDU YÜCEL</li>
+               <li><strong>Başkan Yardımcısı</strong> Prof. Dr. Gülşen ALTUĞ</li>
+               <li><strong>Genel Sekreter</strong> Doç. Dr. Neriman ERSOY HACISALİHOĞLU</li>
+               <li><strong>Genel Sekreter Yardımcısı</strong> Araş.Gör. Dr. Fatma Aysel DINGIL ILGIN</li>
+               <li><strong>Sayman</strong> Dr. Öğr. Üyesi Münevver Ebru ZEREN</li>
+             </ul>
+             <h4>Üyeler</h4>
+             <ul>
+              <li>Prof. Dr. Ayfer KAYNAR</li>
+              <li>Prof. Dr. Belkıs ULUSOY NALCIOĞLU</li>
+              <li>Prof. Dr. Birsel KÜÇÜKSİPAHİOĞLU</li>
+              <li>Prof. Dr. Saadet Olcay EVLİYAOĞLU</li>
+             </ul>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'mainapp/components/layout.html' %}
+{% load static %}
+
+{% block body %}
+<br><br>
+<section class="urgent-causes-area ash-white-bg">
+    <div class="container">
+        <div class="section-heading section-padding pdb55">
+            <h2><span> Başkan</span> {{ uye.uye_name }} </h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="urgent-causes">
+                    <h3>Biyografi </h3>
+                    <p>
+                        {{ uye.uye_bio | safe }}
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="urgent-causes-image">
+                    <div class="images big-image">
+                        <img src="{{ uye.uye_resim.url }}" class="img-responsive img-circle" alt="causes">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!--/.urgent-causes-area-->
+
+<br><br>
+
+{% endblock %}

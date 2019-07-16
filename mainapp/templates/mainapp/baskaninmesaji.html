@@ -1,0 +1,18 @@
+{% extends 'mainapp/components/layout.html' %}
+{% load static %}
+
+{% block body %}
+
+<br><br>
+<section class="urgent-causes-area ash-white-bg">
+    <div class="container">
+        <div class="section-heading section-padding pdb55">
+            <h2><span> Mesaj</span> Başkanın Mesajı</h2>
+        </div>
+  <div>{{ baskanmesaji.baskan_mesaji | safe }}</div>
+    </div>
+</section><!--/.urgent-causes-area-->
+
+<br><br>
+
+{% endblock %}
