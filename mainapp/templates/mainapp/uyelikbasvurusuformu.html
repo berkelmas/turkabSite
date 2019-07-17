@@ -1,0 +1,70 @@
+{% extends 'mainapp/components/layout.html' %}
+{% load static %}
+
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <div class="comment-box text-center">
+          <div class="border-heading">
+              <h4>ÜYELİK BAŞVURUSU</h4>
+          </div>
+          <form method="POST">
+              {% csrf_token %}
+
+              <div class="row">
+                  <div class="col-sm-12 name-parent">
+                      <div class="single-input-box">
+                          <input class="form-control" name="adsoyad" placeholder="Adınız ve Soyadınız" type="text" required>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-sm-6 name-parent">
+                      <div class="single-input-box">
+                          <input class="form-control" name="dogumyerivetarihi" placeholder="Doğum Tarihi ve Yeri" type="text" required>
+                      </div>
+                  </div>
+                  <div class="col-sm-6 email-parent">
+                      <div class="single-input-box">
+                          <input class="form-control" name="tckimlikno" placeholder="TC Kimlik Numarası" type="text" required>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-sm-6 name-parent">
+                      <div class="single-input-box">
+                          <input class="form-control" name="kurum" placeholder="Çalıştığı Kurum(Fakülte/Enstitü,Bölüm, Anabilim Dalı)" type="text" required>
+                      </div>
+                  </div>
+                  <div class="col-sm-6 email-parent">
+                      <div class="single-input-box">
+                          <input class="form-control" name="uzmanlik" placeholder="Uzmanlık Alanı" type="text" required>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-sm-6 name-parent">
+                      <div class="single-input-box">
+                          <input class="form-control" name="meslekiunvan" placeholder="Mesleki Ünvan" type="text" required>
+                      </div>
+                  </div>
+                  <div class="col-sm-6 email-parent">
+                      <div class="single-input-box">
+                          <input class="form-control" name="telefonnumarasi" placeholder="Telefon Numarası" type="text" required>
+                      </div>
+                  </div>
+              </div>
+              <button class="sune-btn" type="submit">BAŞVUR</button>
+          </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endblock %}

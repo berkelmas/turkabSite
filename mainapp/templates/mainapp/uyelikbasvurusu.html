@@ -1,0 +1,116 @@
+{% extends 'mainapp/components/layout.html' %}
+{% load static %}
+
+{% block body %}
+<br><br>
+<section class="know-me-about-us pdb80 ash-white-bg">
+    <div class="container">
+        <div class="section-heading section-padding">
+            <h2><span>Üyelik</span>Üyelik Başvurusu</h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="about-us">
+                    <h3>Kimler Üye Olabilir? Üye Olma Hakkı ve Üyelik İşlemleri</h3>
+                    <p>
+                      Birlik sözleşmesinin öngördüğü koşulları taşıyan her gerçek kişi bu birliğe üye olma
+                      hakkına sahiptir. Türk Kadın Akademisyenler Birliğinin dört çeşit üyesi vardır:
+                    </p>
+                    <ul>
+                      <li>Asil Üye</li>
+                      <li>Onursal Üye</li>
+                      <li>Yabancı Üye</li>
+                      <li>Fahri Üye</li>
+                    </ul>
+
+                    <p><strong>Asil Üyeler:</strong> Birliğin amaç, hedef ve ilkelerini benimseyerek bu doğrultuda çalışmayı
+                    kabul eden Üniversitelerdeki Öğretim Üyesi, Öğretim Görevlisi, Araştırma Görevlisi, Uzman
+                    ve Okutman olarak çalışanlar bu Birliğe Asıl Üye olma hakkına sahiptirler.</p>
+                    <p>Birliğin kurucuları ile yönetim kurulunca üyeliği kabul edilenler asil üyedirler. Asil
+                    Üyeler; üyelik koşullarını yerine getirdikleri sürece toplantılara katılabilirler, genel kurullarda
+                    seçme ve seçilme, her türlü toplantılarda oy kullanma hakkına sahiptirler.</p>
+                    <p><strong>Onursal Üye:</strong> Birliğimizin amacının gerçekleşmesine katkıda bulunanlar ile Türk
+                    biliminde çalışmaları ve araştırmaları ile öne çıkmış kişiler Genel Kurul kararı ile Onursal üye
+                    yapılabilirler. Onursal Üyeler toplantılara dinleyici olarak katılabilirler, genel kurullarda
+                    seçme-seçilme, oy kullanma hakları yoktur.</p>
+                    <p><strong>Yabancı Üye:</strong> Türk akademi dünyasına yaptığı çalışmalar ile katkıda bulunan yabancı
+                    uyruklu gerçek kişiler Yabancı üye olabilirler. Birliğin iki çeşit yabancı üyeliği
+                    bulunmaktadır. 1 Yabancı Asil Üye, 2 Yabancı Onursal Üye.</p>
+                    <p>Yabancı Asıl Üyeler için; Türk vatandaşlarında aranan koşullar yabancı üyeler için de
+                    geçerlidir. Bu koşulların yanı sıra bu kişinin Türkiye’de ikametgâh etme hakkına sahip olması
+                    gereklidir. Bu koşullara sahip yabancı uyruklu kişilerin başvurmaları ve Birlik Yönetim
+                    Kurulunun uygun görmesi üzerine Asil üye olabilirler. Yabancı Asil Üyeler üyelik koşullarını
+                    yerine getirdikleri sürece seçme ve seçilme hakkına sahiptirler.</p>
+                    <p>Yabancı Onursal Üyeler için, Asil üye şartı aranmaz. Yabancı Onursal Üyeler
+                    toplantılara dinleyici olarak katılabilirler; genel kurullarda seçme, seçilme ve oy verme
+                    hakları yoktur.</p>
+                    <p><strong>Fahri Üye:</strong> Birliğe maddi ve manevi bakımdan önemli destek sağlamış bulunanlar
+                    Yönetim kurulu kararı ile Fahri üye olabilirler. Fahri üyeler toplantılara dinleyici olarak
+                    katılabilirler, genel kurullarda seçme, seçilme ve oy kullanma hakları yoktur.</p>
+                    <h3 class="orange">Üyelik Başvurusu Nasıl Yapılır?</h3>
+                    <p>
+                      Birlik asil üyesi olmak isteyenler Birlik Sözleşme Hükümlerini kabul ettiklerini,
+                      üyelik koşullarını yerine getirdiklerini, Asıl Üyelik için üyelik aidatlarını ödemeyi kabul
+                      ettiklerini beyan eden “Üyelik Başvuru Formunu” doldurup, Birlik Yönetim Kuruluna
+                      iletirler. Birlik yönetim kurulu en çok otuz (30) gün içerisinde üyeliğin kabul veya reddi
+                      şeklinde karara bağlar ve sonuç (yazı, e-posta, SMS yolu ile) başvuru sahibine bildirilir.
+                    </p>
+                    <h3>Üye Olmak</h3>
+                    <p>Üyelik başvurusu kabul edilen üye, üyelik aidatını ödemesi sonrasında Birlik üyeliği
+                    hakkını kazanır, bu amaçla tutulacak deftere kaydedilir.</p>
+                    <p>Birlik üyelik hakkını kazananlara; Birlik Üyelik numarası ile Birlik Başkanı’nın
+                    imzası bulunan “Birlik Kimliği” verilir.</p>
+                    <h3 class="orange">Üyelikten Çıkma</h3>
+                    <p>Her üye istemesi halinde, isteğini şahsi ve vekâleten yazılı olarak bildirmek kaydıyla,
+                    birlikten çıkma hakkına sahiptir.</p>
+                    <p>Üyenin istifa dilekçesi birlik genel merkezine ulaştığı anda çıkış işlemleri sonuçlanmış
+                    sayılır. Üyelikten ayrılma, üyenin birliğe olan birikmiş borçlarını sona erdirmez.</p>
+                    <h3>Üyelikten Çıkarılma</h3>
+                    <p>Birlik üyeliğinden çıkarılmayı gerektiren haller: </p>
+                    <ul>
+                      <li>Birlik tüzüğüne aykırı davranışlarda bulunmak,</li>
+                      <li>Birlik manevi şahsiyetini kötüye kullanmak,</li>
+                      <li>Birliğe karşı husumet tavır almak,</li>
+                      <li>Birlik organlarındaki görevi kötüye kullanmak,</li>
+                      <li>Verilen görevlerden sürekli kaçınmak,</li>
+                      <li>Yazılı ikaza rağmen yıllık üyelik aidatını üç kez ödememek,</li>
+                      <li>Birlik organlarınca verilen kararlara uymamak,</li>
+                      <li>Genel kurula mazeretsiz 3 defa katılmamak,</li>
+                      <li>Üye olma şartlarını kaybetmiş olmak,</li>
+                      <li>Üyenin vefat etmiş olması,</li>
+                    </ul>
+                  <p>Yukarıda sayılan durumlardan birinin tespiti halinde yönetim kurulu kararı ile
+                  üyelikten çıkarılabilir.</p>
+                  <p>Birlikten çıkan veya çıkarılanlar, üye kayıt defterinden silinir ve ödediği üyelik aidatı
+                  üzerinde hak iddia edemez. Çıkarılma kararına haklı sebep bulunmadığı ileri sürülerek
+                  yönetim kuruluna 30 gün içerisinde itiraz hakkı vardır, ayrıca çıkarılma işlemi ertesindeki ilk
+                  genel kurulda itiraz hakkı da bulunur.</p>
+                  <h3>Üyelik Hakları</h3>
+                  <p>Birlik üyeleri eşit hakka sahiptir. Eşitliği bozan veya bazı üyelere bu sebeple ayrıcalık
+                  tanıyan uygulamalar yapılmaz. Her üyenin Birliğin faaliyetlerine ve yönetimine katılma hakkı
+                  vardır. Her üyenin genel kurulda bir (1) oy hakkı vardır. Üye oyunu şahsen kullanmak
+                  zorundadır. Onursal üyelerin oy hakkı yoktur.</p>
+                  <h3>Üyeler ile İletişim</h3>
+                  <p>Birliğin üyeler ile iletişimi elektronik ortamda yapılır. Üyelerin üyelik başvurusunda
+                  beyan ettikleri iletişim bilgileri (e-mail adresleri ve GSM numaraları) oluşturulacak veri
+                  tabanı aracılığı ile haberleşme için kullanılır. İletişim bilgilerinin güncellemesi üyelerin
+                  sorumluluğundadır. Ayrıca Birlik web sayfasında ve diğer sosyal medya imkânları ile yapılan
+                  duyurular; üyelere bildirimi yapılmış olarak kabul edilir. Duyuruların takibindeki sorumluluk
+                  Birlik üyelerine aittir.</p>
+                  <h4>Yıllık Üyelik Aidatı</h4>
+                    <ul>
+                      <li>Profesör: 250 TL</li>
+                      <li>Doçent: 200 TL</li>
+                      <li>Dr. Öğretim Üyesi: 150 TL</li>
+                      <li>Araştırma Görevlisi, Öğretim Görevlisi, Uzman ve Okutman: 100 TL</li>
+                    </ul>
+                  <p>Hesap IBAN Numarası: TR94 0006 20001 3140 0006 6850 71</p>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section><!--/.know-me-about-us-->
+
+{% endblock %}
