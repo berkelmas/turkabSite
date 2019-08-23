@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>SUNE || Home</title>
+    <title>Türk Kadın Akademisyenler Birliği</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- ================= Favicon ================== -->
@@ -45,39 +45,30 @@
     <script src="{% static 'mainapp/js/modernizr-2.8.3.min.js' %}"></script>
 </head>
 <body>
-    <div id="loading">
-        <div id="loading-center">
-            <div id="loading-center-absolute">
-                <div class="object" id="object_one"></div>
-                <div class="object" id="object_two"></div>
-                <div class="object" id="object_three"></div>
-                <div class="object" id="object_four"></div>
-                <div class="object" id="object_five"></div>
-                <div class="object" id="object_six"></div>
-                <div class="object" id="object_seven"></div>
-                <div class="object" id="object_eight"></div>
-            </div>
-        </div>
-    </div>
+
     <header>
-        <div class="top-bar-area">
+        <div style="background-image: url(static/mainapp/images/ataturk-resmi.jpg); background-position: center center; background-repeat: no-repeat; background-size : 100px;" class="top-bar-area">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="logo">
-                            <a href="index.html"><img src="{% static 'mainapp/images/home/logo.png' %}" alt="logo" /></a>
+                            <a href="index.html"><img style="height: 53px;" src="{% static 'mainapp/images/turkab-logo-turkuaz.png' %}" alt="logo" /></a>
                         </div>
                     </div>
                     <div class="col-md-8">
                         <div class="text-right">
-                            <a href="#" class="doante-button orange-bg">
-                                <span>PLEASE MAKE YOUR</span>
-                                DONATION
+
+                            <a href="#" style="background-color : #48A4AA; color : #f7f7f7;" class="doante-button">
+                                <span>Türkab'a Katılın</span>
+                                ÜYELİK
                             </a>
-                            <a href="#" class="doante-button yellow-bg">
-                                <span>TIME TO BECOME A</span>
-                                VOLUNTEER
+
+
+                            <a href="#" style="background-color : #48A4AA; color : #f7f7f7;" class="doante-button">
+                                <span>Türkab'a Katılın</span>
+                                ÜYELİK
                             </a>
+
                         </div>
                     </div>
                 </div>
@@ -108,7 +99,7 @@
                                     <li><a href="#">ÜYELİK BAŞVURU FORMU</a></li>
                                   </ul>
                                </li>
-                               <li ><a href="contact-us.html">İLETİŞİM</a></li>
+                               <li ><a href="{% url 'iletisim' %}">İLETİŞİM</a></li>
                            </ul>
                        </nav>
 
@@ -142,12 +133,12 @@
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="footer-logo">
-                            <a href="#"><img src="{% static 'mainapp/images/home/footer-logo.png' %}" class="img-responsive" alt="logo"></a>
+                            <a href="#"><img src="{% static 'mainapp/images/turkab-logo-transparan.png' %}" class="img-responsive" alt="logo"></a>
                         </div>
                     </div>
                     <div class="col-lg-9">
                         <div class="footer-address text-right">
-                            <p>Donec venenatis metus at diam condimentum pretiuteger aliquet a turpis quis pel len tesque  ueta turpis quis venenatissolelementum </p>
+                            <p>TÜRKAB, Türkiye Cumhuriyeti Devleti’nin temel ilkelerine bağlı, devletine, milletine ve insanlığa hizmet etmeyi gaye edinen kadın akademisyenlerin oluşturduğu bir sivil toplum kuruluşudur</p>
                             <ul>
                                 <li><i class="fa fa-map-marker"></i> Albrata Street, 23/D-2, Building, CA, US </li>
                                 <li><i class="ion-iphone"></i> +11 (09) 876543 </li>
@@ -163,13 +154,13 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-important-link">
-                            <h4 class="orange">IMPORTANT LINKS</h4>
+                            <h4 class="orange">ÖNEMLİ LİNKLER</h4>
                             <ul>
-                                <li><a href="#">ABOUT US</a></li>
-                                <li><a href="#">COMPANY PROFILE</a></li>
-                                <li><a href="#">LEGAL POLICY</a></li>
-                                <li><a href="#">COPYRIGHT ISSUES</a></li>
-                                <li><a href="#">GLOBAL OFFICES</a></li>
+                                <li><a href="#">HAKKIMIZDA</a></li>
+                                <li><a href="#">ÜYELERİMİZ</a></li>
+                                <li><a href="#">ÜYELİK BAŞVURUSU</a></li>
+                                <li><a href="#">İLETİŞİM</a></li>
+                       
                             </ul>
                         </div>
                     </div>
@@ -186,19 +177,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-5 col-md-12">
-                        <div class="footer-gallery">
-                            <h4 class="orange">PHOTO GALLERY</h4>
-                            <ul>
-                                <li><a href="#"><img src="{% static 'mainapp/images/footer/1.jpg' %}" class="img-responsive" alt="gallery"></a></li>
-                                <li><a href="#"><img src="{% static 'mainapp/images/footer/2.jpg' %}" class="img-responsive" alt="gallery"></a></li>
-                                <li><a href="#"><img src="{% static 'mainapp/images/footer/3.jpg' %}" class="img-responsive" alt="gallery"></a></li>
-                                <li><a href="#"><img src="{% static 'mainapp/images/footer/4.jpg' %}" class="img-responsive" alt="gallery"></a></li>
-                                <li><a href="#"><img src="{% static 'mainapp/images/footer/5.jpg' %}" class="img-responsive" alt="gallery"></a></li>
-                                <li><a href="#"><img src="{% static 'mainapp/images/footer/6.jpg' %}" class="img-responsive" alt="gallery"></a></li>
-                            </ul>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>

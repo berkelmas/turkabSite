@@ -16,3 +16,5 @@ admin.site.register(UyelikBasvurusu, UyelikBasvurusuAdmin)
 class ContactAdmin(admin.ModelAdmin):
     pass
 admin.site.register(Contact, ContactAdmin)
+
+admin.site.site_header = 'TÜRKAB Yönetim Paneli'
