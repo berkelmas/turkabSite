@@ -47,7 +47,7 @@
 <body>
 
     <header>
-        <div style="background-image: url({% static 'mainapp/images/ataturk-resmi.jpg' %}); background-position: center center; background-repeat: no-repeat; background-size : 100px;" class="top-bar-area">
+        <div class="top-bar-area">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
@@ -57,18 +57,7 @@
                     </div>
                     <div class="col-md-8">
                         <div class="text-right">
-
-                            <a href="#" style="background-color : #48A4AA; color : #f7f7f7;" class="doante-button">
-                                <span>Türkab'a Katılın</span>
-                                ÜYELİK
-                            </a>
-
-
-                            <a href="#" style="background-color : #48A4AA; color : #f7f7f7;" class="doante-button">
-                                <span>Türkab'a Katılın</span>
-                                ÜYELİK
-                            </a>
-
+                            <img style="height: 80px;" src="{% static 'mainapp/images/turk-bayragi-gif.gif' %}" alt="">
                         </div>
                     </div>
                 </div>
@@ -105,33 +94,26 @@
                                     </ul>
                                 </li>
 
-                                <li><a href="#">ETKİNLİKLERİMİZ</a>
+                                <li><a style="cursor: pointer;">ETKİNLİKLERİMİZ</a>
                                     <ul class="dropdown">
-                                        <li><a style="text-transform: lowercase;" href="#">EĞİTİMLERİMİZ</a></li>
-                                        <li><a style="text-transform: lowercase;" href="#">PROJELERİMİZ</a></li>
-                                        <li><a style="text-transform: lowercase;" href="#">Yayınlarımız</a></li>
+                                        <li><a style="text-transform: lowercase;" href="{% url 'egitimler' %}">EĞİTİMLERİMİZ</a></li>
+                                        <li><a style="text-transform: lowercase;" href="{% url 'projeler' %}">PROJELERİMİZ</a></li>
+                                        <li><a style="text-transform: lowercase;" href="{% url 'etkinlikler' %}">Yayınlarımız</a></li>
                                     </ul>
                                 </li>
 
-                               <li><a href="#">ÜYELİK BAŞVURUSU</a>
+                               <li><a style="cursor: pointer;">ÜYELİK BAŞVURUSU</a>
                                   <ul class="dropdown">
-                                    <li><a href="#">ÜYELİK BAŞVURU FORMU</a></li>
-                                  </ul>
+                                    <li><a style="text-transform : lowercase;" href="{% url 'uyelikbasvurusu' %}">üyelik koşulları</a></li>
+                                    <li><a style="text-transform : lowercase;" href="{% url 'uyelikbasvurusuformu' %}">üyelik formu</a></li>
+                                </ul>
                                </li>
                                <li ><a href="{% url 'iletisim' %}">İLETİŞİM</a></li>
                            </ul>
                        </nav>
 
                     </div>
-                    <div class="col-md-3">
-                        <div class="social-icon text-right">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-facebook-official"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -158,7 +140,7 @@
                             <ul>
                                 <li><i class="fa fa-map-marker"></i> Albrata Street, 23/D-2, Building, CA, US </li>
                                 <li><i class="ion-iphone"></i> +11 (09) 876543 </li>
-                                <li><i class="ion-forward"></i> support@domian.com </li>
+                                <li><i class="ion-forward"></i> info@turkab.org.tr </li>
                             </ul>
                         </div>
                     </div>
@@ -177,6 +159,18 @@
                                 <li><a href="#">ÜYELİK BAŞVURUSU</a></li>
                                 <li><a href="#">İLETİŞİM</a></li>
                        
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-important-link">
+                            <h4 class="orange">ÖNEMLİ LİNKLER</h4>
+                            <ul>
+                                <li><a href="#">HAKKIMIZDA</a></li>
+                                <li><a href="#">ÜYELERİMİZ</a></li>
+                                <li><a href="#">ÜYELİK BAŞVURUSU</a></li>
+                                <li><a href="#">İLETİŞİM</a></li>
+                        
                             </ul>
                         </div>
                     </div>
@@ -210,7 +204,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6 col-lg-pull-6">
-                        <div class="copy-right-text">
+                        <div style="color : #f7f7f7;" class="copy-right-text">
                             TÜRKAB - Türk Kadın Akademisyenler Birliği - 2019
                         </div>
                     </div>

@@ -8,48 +8,41 @@
             <div class="row">
                 <div class="col-md-9">
                     <h2 style="padding-bottom : 20px; text-align: center;">Eğitimlerimiz</h2>
-                    <div class="blog-list-item">
-                        <div class="image">
-                            <img src="{% static 'mainapp/images/blog/1.jpg' %}" class="img-responsive" alt="blog image">
-                        </div>
-                        <div class="meta-box">
-  
-                        </div>
-                        <div class="blog-list-text">
-                            <h3><a href="#">You may win the heart of your passion, but you can't overcome</a></h3>
-                            <p>Vestibulum scelerisque sem vitae ipsum hendrerit, ac imperdiet risus commodo. Cras vitae ornare dui. Mauris at orci felis. In scelerisque dapibus porttitor. Vestibulum faucibus ante ac commodo facilisis. Pellentesque posuere ante sit amet tellus dictum rutrum. Nunc porta dictum eleifend. </p>
-                            <a href="#" class="blog-read-more-button">READ MORE <i class="ion-android-arrow-forward"></i></a>
-                        </div>
-                    </div><!--/.blog-list-item-->
-                    <div class="blog-list-item">
-                        <div class="image">
-                            <img src="{% static 'mainapp/images/blog/2.jpg' %}" class="img-responsive" alt="blog image">
-                        </div>
-      
-                        <div class="blog-list-text">
-                            <h3><a href="#">You may win the heart of your passion, but you can't overcome</a></h3>
-                            <p>Vestibulum scelerisque sem vitae ipsum hendrerit, ac imperdiet risus commodo. Cras vitae ornare dui. Mauris at orci felis. In scelerisque dapibus porttitor. Vestibulum faucibus ante ac commodo facilisis. Pellentesque posuere ante sit amet tellus dictum rutrum. Nunc porta dictum eleifend. </p>
-                            <a href="#" class="blog-read-more-button">READ MORE <i class="ion-android-arrow-forward"></i></a>
-                        </div>
-                    </div><!--/.blog-list-item-->
-                    <div class="blog-list-item">
-                        <div class="image">
-                            <img src="{% static 'mainapp/images/blog/3.jpg' %}" class="img-responsive" alt="blog image">
-                        </div>
-               
-                        <div class="blog-list-text">
-                            <h3><a href="#">You may win the heart of your passion, but you can't overcome</a></h3>
-                            <p>Vestibulum scelerisque sem vitae ipsum hendrerit, ac imperdiet risus commodo. Cras vitae ornare dui. Mauris at orci felis. In scelerisque dapibus porttitor. Vestibulum faucibus ante ac commodo facilisis. Pellentesque posuere ante sit amet tellus dictum rutrum. Nunc porta dictum eleifend. </p>
-                            <a href="#" class="blog-read-more-button">READ MORE <i class="ion-android-arrow-forward"></i></a>
-                        </div>
-                    </div><!--/.blog-list-item-->
+                    
+                    {% for egitim in egitimler %}
+                        <div class="blog-list-item">
+                            <div class="image">
+                                <img src="{% static 'mainapp/images/blog/1.jpg' %}" class="img-responsive" alt="blog image">
+                            </div>
+                            <div class="meta-box">
+    
+                            </div>
+                            <div class="blog-list-text">
+                                <h3><a href="{% url 'egitimdetay' egitimslug=egitim.egitim_slug %}">{{ egitim.egitim_name }}</a></h3>
+                                <p>{{ egitim.egitim_icerik |safe|truncatechars_html:400|linebreaks }}</p>
+                                <a href="{% url 'egitimdetay' egitimslug=egitim.egitim_slug %}" class="blog-read-more-button">Daha Fazlası <i class="ion-android-arrow-forward"></i></a>
+                            </div>
+                        </div><!--/.blog-list-item-->
+                    {% endfor %}
+
+
                     <ul class="sune-pagination">
-                        <li><a href="#"><i class="fa fa-long-arrow-left"></i>PREV</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#" class="active">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">NEXT<i class="fa fa-long-arrow-right"></i></a></li>
+
+                    {% if egitimler.has_previous %}
+                        <li><a href="?page={{ egitimler.previous_page_number }}"><i class="fa fa-long-arrow-left"></i>Önceki</a></li>
+                    {% endif %}
+
+                    {% for i in egitimler.paginator.page_range %}
+                        <li><a href="?page={{i}}" class="{% if i == egitimler.number %}active{% endif %}">{{i}}</a></li>
+                    {% endfor %}
+
+                        {% if egitimler.has_next %}
+                        <li><a href="?page={{ egitimler.next_page_number }}">Sonraki<i class="fa fa-long-arrow-right"></i></a></li>
+                        {% endif %}
+
                     </ul>
+
+
                 </div>
                 <div class="col-md-3">
                     <div class="sidebar">
@@ -67,7 +60,7 @@
                                             <img src="{% static 'mainapp/images/causes/6.jpg' %}" class="img-responsive" alt="causes">
                                         </div>
                            
-                                        <h5><a href="#">{{ egitim.egitim_name }}</a></h5>
+                                        <h5><a href="{% url 'egitimdetay' egitimslug=egitim.egitim_slug %}">{{ egitim.egitim_name }}</a></h5>
                                         <p>{{ egitim.egitim_icerik |safe|truncatechars_html:50|linebreaks }}</p>
                                     </div><!--/.popular-post -->
                                 </div>

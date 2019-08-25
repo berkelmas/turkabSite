@@ -4,4 +4,76 @@
 {% block body %}
 
 
+<div class="blog-list-body mt100 pdb90">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <h2 style="padding-bottom : 20px; text-align: center;">Projelerimiz</h2>
+                    
+                    {% for proje in projeler %}
+                        <div class="blog-list-item">
+                            <div class="image">
+                                <img src="{% static 'mainapp/images/blog/1.jpg' %}" class="img-responsive" alt="blog image">
+                            </div>
+                            <div class="meta-box">
+    
+                            </div>
+                            <div class="blog-list-text">
+                                <h3><a href="{% url 'projedetay' projeslug=proje.proje_slug %}">{{ proje.proje_name }}</a></h3>
+                                <p>{{ proje.proje_icerik |safe|truncatechars_html:400|linebreaks }}</p>
+                                <a href="{% url 'projedetay' projeslug=proje.proje_slug %}" class="blog-read-more-button">Daha Fazlası <i class="ion-android-arrow-forward"></i></a>
+                            </div>
+                        </div><!--/.blog-list-item-->
+                    {% endfor %}
+
+
+                    <ul class="sune-pagination">
+
+                    {% if projeler.has_previous %}
+                        <li><a href="?page={{ projeler.previous_page_number }}"><i class="fa fa-long-arrow-left"></i>Önceki</a></li>
+                    {% endif %}
+
+                    {% for i in projeler.paginator.page_range %}
+                        <li><a href="?page={{i}}" class="{% if i == projeler.number %}active{% endif %}">{{i}}</a></li>
+                    {% endfor %}
+
+                        {% if projeler.has_next %}
+                        <li><a href="?page={{ projeler.next_page_number }}">Sonraki<i class="fa fa-long-arrow-right"></i></a></li>
+                        {% endif %}
+
+                    </ul>
+
+
+                </div>
+                <div class="col-md-3">
+                    <div class="sidebar">
+
+                        <aside class="blog-page-popular-post">
+                            <div class="border-heading">
+                                <h4>Son Projelerimiz</h4>
+                            </div>
+                            <div class="row">
+                                
+                                {% for proje in ucproje %}
+                                <div class="col-md-12">
+                                    <div class="popular-post">
+                                        <div class="image">
+                                            <img src="{% static 'mainapp/images/causes/6.jpg' %}" class="img-responsive" alt="causes">
+                                        </div>
+                           
+                                        <h5><a href="{% url 'projedetay' projeslug=proje.proje_slug %}">{{ proje.proje_name }}</a></h5>
+                                        <p>{{ proje.proje_icerik |safe|truncatechars_html:50|linebreaks }}</p>
+                                    </div><!--/.popular-post -->
+                                </div>
+                                {% endfor %}
+                        
+                            </div>
+                        </aside>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

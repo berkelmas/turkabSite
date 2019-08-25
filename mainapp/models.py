@@ -88,7 +88,7 @@ class Egitim(models.Model):
         super(Egitim, self).save(*args, **kwargs)
 
     class Meta:
-        ordering = ('egitim_tarihi',)
+        ordering = ('-egitim_tarihi',)
         verbose_name = 'Eğitim'
         verbose_name_plural = 'Eğitimler'
 
@@ -112,7 +112,7 @@ class Etkinlik(models.Model):
     class Meta:
         verbose_name = 'Yayın'
         verbose_name_plural = 'Yayınlar'
-        ordering = ('etkinlik_tarihi',)
+        ordering = ('-etkinlik_tarihi',)
 
 class Proje(models.Model):
     proje_name = models.CharField(('Proje Adı'), max_length= 150)
@@ -127,7 +127,7 @@ class Proje(models.Model):
     class Meta:
         verbose_name = 'Proje'
         verbose_name_plural = 'Projeler'
-        ordering = ('proje_tarihi',)
+        ordering = ('-proje_tarihi',)
 
     def save(self, *args, **kwargs):
         self.proje_slug = slugify(unidecode(self.proje_name))
@@ -144,7 +144,7 @@ class Contact(models.Model):
     class Meta:
         verbose_name = 'İletişim Talebi'
         verbose_name_plural = 'İletişim Talepleri'
-        ordering = ('iletisim_tarihi',)
+        ordering = ('-iletisim_tarihi',)
 
     def __str__(self):
         return self.iletisim_name

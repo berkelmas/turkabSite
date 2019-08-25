@@ -58,7 +58,7 @@ def kuruldetay(request, kurulslug):
 def etkinlikler(request):
     etkinlik_list = Etkinlik.objects.all()
 
-    paginator = Paginator(etkinlik_list, 4)
+    paginator = Paginator(etkinlik_list, 3)
     page = request.GET.get('page')
     etkinlikler = paginator.get_page(page)
 
@@ -70,11 +70,11 @@ def etkinlikler(request):
 def projeler(request):
     proje_list = Proje.objects.all()
 
-    paginator = Paginator(proje_list, 4)
+    paginator = Paginator(proje_list, 3)
     page = request.GET.get('page')
     projeler = paginator.get_page(page)
 
-    ucproje = Projeler.objects.all()[:3]
+    ucproje = Proje.objects.all()[:3]
     kurullarUst = Kurul.objects.filter(kurul_ustkurul__isnull = True)
     kurullarAlt = Kurul.objects.filter(kurul_ustkurul__isnull = False)
     return render(request, 'mainapp/projeler.html', { 'projeler' : projeler, 'ucproje' : ucproje, 'kurullarUst' : kurullarUst, 'kurullarAlt' : kurullarAlt })
@@ -82,7 +82,7 @@ def projeler(request):
 def egitimler(request):
     egitim_list = Egitim.objects.all()
 
-    paginator = Paginator(egitim_list, 4)
+    paginator = Paginator(egitim_list, 3)
     page = request.GET.get('page')
     egitimler = paginator.get_page(page)
 
@@ -94,23 +94,26 @@ def egitimler(request):
 def egitimdetay(request, egitimslug):
     egitim = Egitim.objects.get(egitim_slug= egitimslug)
 
+    ucegitim = Egitim.objects.all()[:3]
     kurullarUst = Kurul.objects.filter(kurul_ustkurul__isnull = True)
     kurullarAlt = Kurul.objects.filter(kurul_ustkurul__isnull = False)
-    return render(request, 'mainapp/egitimdetay.html', { 'egitim' : egitim, 'kurullarUst' : kurullarUst, 'kurullarAlt' : kurullarAlt })
+    return render(request, 'mainapp/egitimdetay.html', { 'egitim' : egitim, 'ucegitim' : ucegitim, 'kurullarUst' : kurullarUst, 'kurullarAlt' : kurullarAlt })
 
 def projedetay(request, projeslug):
-    proje = Proje.object.get(proje_slug= projeslug)
+    proje = Proje.objects.get(proje_slug= projeslug)
 
+    ucproje = Proje.objects.all()[:3]
     kurullarUst = Kurul.objects.filter(kurul_ustkurul__isnull = True)
     kurullarAlt = Kurul.objects.filter(kurul_ustkurul__isnull = False)
-    return render(request, 'mainapp/projedetay.html', { 'proje' : proje, 'kurullarUst' : kurullarUst, 'kurullarAlt' : kurullarAlt })    
+    return render(request, 'mainapp/projedetay.html', { 'proje' : proje, 'ucproje' : ucproje, 'kurullarUst' : kurullarUst, 'kurullarAlt' : kurullarAlt })    
 
 def etkinlikdetay(request, etkinlikslug):
     etkinlik = Etkinlik.objects.get(etkinlik_slug= etkinlikslug)
 
+    ucetkinlik = Etkinlik.objects.all()[:3]
     kurullarUst = Kurul.objects.filter(kurul_ustkurul__isnull = True)
     kurullarAlt = Kurul.objects.filter(kurul_ustkurul__isnull = False)
-    return render(reguest, 'mainapp/etkinlikdetay.html', { 'etkinlik' : etkinlik, 'kurullarUst' : kurullarUst, 'kurullarAlt' : kurullarAlt })
+    return render(request, 'mainapp/etkinlikdetay.html', { 'etkinlik' : etkinlik, 'ucetkinlik' : ucetkinlik, 'kurullarUst' : kurullarUst, 'kurullarAlt' : kurullarAlt })
 
 def birliksozlesmesi(request):
     return render(request, 'mainapp/birliksozlesmesi.html')
@@ -137,7 +140,7 @@ def uyelikbasvurusuformu(request):
         newUyelikBasvurusu = UyelikBasvurusu(basvuru_name = adsoyad, basvuru_dogumyeri_tarihi = dogumyerivetarihi, basvuru_tcno = tckimlikno, basvuru_kurum = kurum, basvuru_uzmanlik = uzmanlik, basvuru_meslekiunvan = meslekiunvan, basvuru_telefon = telefonnumarasi)
         newUyelikBasvurusu.save()
         return redirect('index')
-    return render(request, 'mainapp/uyelikbasvurusuformu.html', { 'kurullarUst' : KurullarUst, 'kurullarAlt' : kurullarAlt })
+    return render(request, 'mainapp/uyelikbasvurusuformu.html', { 'kurullarUst' : kurullarUst, 'kurullarAlt' : kurullarAlt })
 
 def iletisim(request):
     kurullarUst = Kurul.objects.filter(kurul_ustkurul__isnull = True)
