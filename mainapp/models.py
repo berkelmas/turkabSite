@@ -76,6 +76,64 @@ class Kurul(models.Model):
         verbose_name = 'Kurul'
         verbose_name_plural = 'Kurullar'
 
+class Egitim(models.Model):
+    egitim_name = models.CharField(('Eğitim Adı'), max_length= 150)
+    egitim_icerik = RichTextField(('Eğitim İçeriği'))
+    egitim_tarihi = models.DateField(('Eğitim Tarihi'))
+
+    egitim_slug = models.SlugField(('Eğitim Slug Adı'), unique= True)
+
+    def save(self, *args, **kwargs):
+        self.egitim_slug = slugify(unidecode(self.egitim_name))
+        super(Egitim, self).save(*args, **kwargs)
+
+    class Meta:
+        ordering = ('egitim_tarihi',)
+        verbose_name = 'Eğitim'
+        verbose_name_plural = 'Eğitimler'
+
+    def __str__(self):
+        return self.egitim_name
+
+class Etkinlik(models.Model):
+    etkinlik_name = models.CharField(('Yayın Adı'), max_length= 150)
+    etkinlik_tarihi = models.DateField(('Yayın Tarihi'))
+    etkinlik_icerik = RichTextField(('Yayın İçeriği'))
+
+    etkinlik_slug = models.SlugField(('Yayın Slug Adı'), unique= True)
+
+    def save(self, *args, **kwargs):
+        self.etkinlik_slug = slugify(unidecode(self.etkinlik_name))
+        super(Etkinlik, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return self.etkinlik_name
+
+    class Meta:
+        verbose_name = 'Yayın'
+        verbose_name_plural = 'Yayınlar'
+        ordering = ('etkinlik_tarihi',)
+
+class Proje(models.Model):
+    proje_name = models.CharField(('Proje Adı'), max_length= 150)
+    proje_tarihi = models.DateField(('Proje Tarihi'))
+    proje_icerik = RichTextField(('Proje İçeriği'))
+
+    proje_slug = models.SlugField(('Proje Slug Adı'), unique= True)
+
+    def __str__(self):
+        return self.proje_name
+
+    class Meta:
+        verbose_name = 'Proje'
+        verbose_name_plural = 'Projeler'
+        ordering = ('proje_tarihi',)
+
+    def save(self, *args, **kwargs):
+        self.proje_slug = slugify(unidecode(self.proje_name))
+        super(Proje, self).save(*args, **kwargs)
+
+
 class Contact(models.Model):
     iletisim_name = models.CharField(('Ad-Soyad'), max_length = 150)
     iletisim_contactinfo = models.CharField(('İletişim Adresi'), max_length= 150)

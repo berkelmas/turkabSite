@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import Uye, BaskanMesaji, UyelikBasvurusu, Contact, \
-    Kurul
+    Kurul, Etkinlik, Proje, Egitim
+
+from django.core.paginator import Paginator
 
 # Create your views here.
 def index(request):
@@ -42,13 +44,82 @@ def yonetim(request):
 def onurkurulu(request):
     kurullarUst = Kurul.objects.filter(kurul_ustkurul__isnull = True)
     kurullarAlt = Kurul.objects.filter(kurul_ustkurul__isnull = False)
-    return render(request, 'mainapp/onurkurulu.html', { 'kurullarUst' : KurullarUst, 'kurullarAlt' : kurullarAlt })
+    return render(request, 'mainapp/onurkurulu.html', { 'kurullarUst' : kurullarUst, 'kurullarAlt' : kurullarAlt })
+
+def kuruldetay(request, kurulslug):
+    kurullarUst = Kurul.objects.filter(kurul_ustkurul__isnull = True)
+    kurullarAlt = Kurul.objects.filter(kurul_ustkurul__isnull = False)
+
+    kurul = Kurul.objects.get(kurul_slug= kurulslug)
+
+    return render(request, 'mainapp/kuruldetay.html', { 'kurullarUst' : kurullarUst, 'kurullarAlt' : kurullarAlt, 'kurul' : kurul })
+
+
+def etkinlikler(request):
+    etkinlik_list = Etkinlik.objects.all()
+
+    paginator = Paginator(etkinlik_list, 4)
+    page = request.GET.get('page')
+    etkinlikler = paginator.get_page(page)
+
+    ucetkinlik = Etkinlik.objects.all()[:3]
+    kurullarUst = Kurul.objects.filter(kurul_ustkurul__isnull = True)
+    kurullarAlt = Kurul.objects.filter(kurul_ustkurul__isnull = False)
+    return render(request, 'mainapp/etkinlikler.html', { 'etkinlikler' : etkinlikler, 'ucetkinlik' : ucetkinlik, 'kurullarUst' : kurullarUst, 'kurullarAlt' : kurullarAlt })
+
+def projeler(request):
+    proje_list = Proje.objects.all()
+
+    paginator = Paginator(proje_list, 4)
+    page = request.GET.get('page')
+    projeler = paginator.get_page(page)
+
+    ucproje = Projeler.objects.all()[:3]
+    kurullarUst = Kurul.objects.filter(kurul_ustkurul__isnull = True)
+    kurullarAlt = Kurul.objects.filter(kurul_ustkurul__isnull = False)
+    return render(request, 'mainapp/projeler.html', { 'projeler' : projeler, 'ucproje' : ucproje, 'kurullarUst' : kurullarUst, 'kurullarAlt' : kurullarAlt })
+
+def egitimler(request):
+    egitim_list = Egitim.objects.all()
+
+    paginator = Paginator(egitim_list, 4)
+    page = request.GET.get('page')
+    egitimler = paginator.get_page(page)
+
+    ucegitim = Egitim.objects.all()[:3]
+    kurullarUst = Kurul.objects.filter(kurul_ustkurul__isnull = True)
+    kurullarAlt = Kurul.objects.filter(kurul_ustkurul__isnull = False)
+    return render(request, 'mainapp/egitimler.html', { 'egitimler' : egitimler, 'ucegitim' : ucegitim, 'kurullarUst' : kurullarUst, 'kurullarAlt' : kurullarAlt })
+
+def egitimdetay(request, egitimslug):
+    egitim = Egitim.objects.get(egitim_slug= egitimslug)
+
+    kurullarUst = Kurul.objects.filter(kurul_ustkurul__isnull = True)
+    kurullarAlt = Kurul.objects.filter(kurul_ustkurul__isnull = False)
+    return render(request, 'mainapp/egitimdetay.html', { 'egitim' : egitim, 'kurullarUst' : kurullarUst, 'kurullarAlt' : kurullarAlt })
+
+def projedetay(request, projeslug):
+    proje = Proje.object.get(proje_slug= projeslug)
+
+    kurullarUst = Kurul.objects.filter(kurul_ustkurul__isnull = True)
+    kurullarAlt = Kurul.objects.filter(kurul_ustkurul__isnull = False)
+    return render(request, 'mainapp/projedetay.html', { 'proje' : proje, 'kurullarUst' : kurullarUst, 'kurullarAlt' : kurullarAlt })    
+
+def etkinlikdetay(request, etkinlikslug):
+    etkinlik = Etkinlik.objects.get(etkinlik_slug= etkinlikslug)
+
+    kurullarUst = Kurul.objects.filter(kurul_ustkurul__isnull = True)
+    kurullarAlt = Kurul.objects.filter(kurul_ustkurul__isnull = False)
+    return render(reguest, 'mainapp/etkinlikdetay.html', { 'etkinlik' : etkinlik, 'kurullarUst' : kurullarUst, 'kurullarAlt' : kurullarAlt })
+
+def birliksozlesmesi(request):
+    return render(request, 'mainapp/birliksozlesmesi.html')
 
 def uyelikbasvurusu(request):
 
     kurullarUst = Kurul.objects.filter(kurul_ustkurul__isnull = True)
     kurullarAlt = Kurul.objects.filter(kurul_ustkurul__isnull = False)
-    return render(request, 'mainapp/uyelikbasvurusu.html', { 'kurullarUst' : KurullarUst, 'kurullarAlt' : kurullarAlt })
+    return render(request, 'mainapp/uyelikbasvurusu.html', { 'kurullarUst' : kurullarUst, 'kurullarAlt' : kurullarAlt })
 
 def uyelikbasvurusuformu(request):
     kurullarUst = Kurul.objects.filter(kurul_ustkurul__isnull = True)
@@ -81,4 +152,4 @@ def iletisim(request):
         newContact.save()
         return redirect('index')
 
-    return render(request, 'mainapp/iletisim.html', { 'kurullarUst' : KurullarUst, 'kurullarAlt' : kurullarAlt })
+    return render(request, 'mainapp/iletisim.html', { 'kurullarUst' : kurullarUst, 'kurullarAlt' : kurullarAlt })

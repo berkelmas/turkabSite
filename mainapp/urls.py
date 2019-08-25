@@ -4,7 +4,8 @@ from django.conf.urls.static import static
 
 from .views import index, about, uyedetail, baskaninmesaji, \
                     uyelikbasvurusu, uyelikbasvurusuformu, iletisim, \
-                    yonetim, onurkurulu
+                    yonetim, onurkurulu, kuruldetay, egitimler, projeler, \
+                    etkinlikler, birliksozlesmesi
 
 urlpatterns = [
     path('', index, name="index"),
@@ -12,6 +13,11 @@ urlpatterns = [
     path('baskanin-mesaji', baskaninmesaji, name="baskaninmesaji"),
     path('yonetim', yonetim, name="yonetim"),
     path('onur-kurulu', onurkurulu, name="onurkurulu"),
+    path('birlik-sozlesmesi', birliksozlesmesi, name="birliksozlesmesi"),
+    path('egitimler', egitimler, name="egitimler"),
+    path('projeler', projeler, name="projeler"),
+    path('etkinlikler', etkinlikler, name="etkinlikler"),
+    path('kurul/<slug:kurulslug>', kuruldetay, name="kuruldetay"),
     path('uye/<slug:uyeslug>', uyedetail, name="uyedetail"),
     path('uyelik-basvurusu', uyelikbasvurusu, name="uyelikbasvurusu"),
     path('uyelik-basvurusu-formu', uyelikbasvurusuformu, name="uyelikbasvurusuformu"),

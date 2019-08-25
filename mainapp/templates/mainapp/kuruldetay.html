@@ -1,0 +1,30 @@
+{% extends 'mainapp/components/layout.html' %}
+{% load static %}
+
+{% block body %}
+
+    <div class="event-detail-body mt100 pdb90">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div style="text-align: center;" class="event-detail-item">
+                        
+                        <div style="display: flex; justify-content: center;" class="image">
+                            <img style="height: 200px;" src="{% static 'mainapp/images/turkab-logo-icon.png' %}" class="img-responsive" alt="event">
+                        </div>
+
+         
+                        <div class="event-text">
+                            <h3><a>{{ kurul.kurul_name }}</a></h3>
+                            {{ kurul.kurul_icerik | safe }}
+                        </div>
+                   
+                    </div><!--/.event-detail-item-->
+
+                </div>
+  
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -47,12 +47,12 @@
 <body>
 
     <header>
-        <div style="background-image: url(static/mainapp/images/ataturk-resmi.jpg); background-position: center center; background-repeat: no-repeat; background-size : 100px;" class="top-bar-area">
+        <div style="background-image: url({% static 'mainapp/images/ataturk-resmi.jpg' %}); background-position: center center; background-repeat: no-repeat; background-size : 100px;" class="top-bar-area">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="logo">
-                            <a href="index.html"><img style="height: 53px;" src="{% static 'mainapp/images/turkab-logo-turkuaz.png' %}" alt="logo" /></a>
+                            <a href="{% url 'index' %}"><img style="height: 53px;" src="{% static 'mainapp/images/turkab-logo-turkuaz.png' %}" alt="logo" /></a>
                         </div>
                     </div>
                     <div class="col-md-8">
@@ -90,18 +90,26 @@
                                   </ul>
                                </li>
 
-                               <li ><a href="contact-us.html">KURULLAR</a>
+                               <li ><a style="cursor: pointer;">KURULLAR</a>
                                     <ul class="dropdown">
                                         {% for kurulUst in kurullarUst %}
-                                            <li><a href="#" style="text-transform: lowercase;">{{ kurulUst.kurul_name_capital }}</a></li>
+                                            <li><a href="{% url 'kuruldetay' kurulslug=kurulUst.kurul_slug %}" style="text-transform: lowercase;">{{ kurulUst.kurul_name_capital }}</a></li>
                                         {% endfor %}
                                             <li><a style="cursor: pointer; text-transform: lowercase;">Bilim Kurulları</a>
                                                 <ul class="dropdown">
                                                     {% for kurulAlt in kurullarAlt %}
-                                                        <li><a href="#" style="text-transform: lowercase;">{{ kurulAlt.kurul_name }}</a></li>
+                                                        <li><a href="{% url 'kuruldetay' kurulslug=kurulAlt.kurul_slug %}" style="text-transform: lowercase;">{{ kurulAlt.kurul_name }}</a></li>
                                                     {% endfor %}
                                                 </ul>
                                             </li>
+                                    </ul>
+                                </li>
+
+                                <li><a href="#">ETKİNLİKLERİMİZ</a>
+                                    <ul class="dropdown">
+                                        <li><a style="text-transform: lowercase;" href="#">EĞİTİMLERİMİZ</a></li>
+                                        <li><a style="text-transform: lowercase;" href="#">PROJELERİMİZ</a></li>
+                                        <li><a style="text-transform: lowercase;" href="#">Yayınlarımız</a></li>
                                     </ul>
                                 </li>
 
@@ -119,11 +127,8 @@
                         <div class="social-icon text-right">
                             <ul>
                                 <li><a href="#"><i class="fa fa-facebook-official"></i></a></li>
-
                                 <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
                                 <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
-
-
                             </ul>
                         </div>
                     </div>
