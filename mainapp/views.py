@@ -21,6 +21,14 @@ def baskaninmesaji(request):
     baskanmesaji = BaskanMesaji.objects.all()[0]
     return render(request, 'mainapp/baskaninmesaji.html', { 'uyeler' : uyeler, 'baskanmesaji' : baskanmesaji })
 
+def yonetim(request):
+    ykUyeler = Uye.objects.filter(uye_yk_durum= True)
+    normalUyeler = Uye.objects.filter(uye_yk_durum= False)
+    return render(request, 'mainapp/yonetim.html', {'ykUyeler' : ykUyeler, 'normalUyeler' : normalUyeler})
+
+def onurkurulu(request):
+    return render(request, 'mainapp/onurkurulu.html')
+
 def uyelikbasvurusu(request):
     uyeler = Uye.objects.all()
     return render(request, 'mainapp/uyelikbasvurusu.html', { 'uyeler' : uyeler })

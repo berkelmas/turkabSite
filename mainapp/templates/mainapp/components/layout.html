@@ -81,17 +81,13 @@
                         <nav id="menuzord" class="menuzord">
                            <ul class="menuzord-menu">
                                <li><a href="{% url 'index' %}" {% if nbar == 'index' %} class="active" {% endif %} >Ana Sayfa</a></li>
-                               <li><a href="{% url 'about' %}" {% if nbar == 'about' %} class="active" {% endif %}>Hakkımızda</a>
+                               <li><a style="cursor: pointer;" {% if nbar == 'about' %} class="active" {% endif %}>Hakkımızda</a>
                                   <ul class="dropdown">
-                                    <li><a href="{% url 'baskaninmesaji' %}">Başkanın Mesajı</a></li>
+                                    <li><a href="{% url 'about' %}">GÖREV, HEDEF VE DEĞERLERİMİZ</a></li>
+                                    <li><a href="{% url 'baskaninmesaji' %}">BAŞKANIN MESAJI</a></li>
+                                    <li><a href="{% url 'yonetim' %}">YÖNETİM KURULU</a></li>
+                                    <li><a href="{% url 'baskaninmesaji' %}">BİRLİK SÖZLEŞMESİ</a></li>
                                   </ul>
-                               </li>
-                               <li><a>ÜYELERİMİZ</a>
-                                   <ul class="dropdown">
-                                     {% for uye in uyeler %}
-                                       <li><a href="/uye/{{ uye.uye_slug }}">{{uye.uye_name}}</a></li>
-                                     {% endfor %}
-                                   </ul>
                                </li>
                                <li ><a href="contact-us.html">KURULLAR</a></li>
                                <li><a href="#">ÜYELİK BAŞVURUSU</a>

@@ -12,12 +12,16 @@ class Uye(models.Model):
     uye_slug = models.SlugField(unique= True)
     uye_resim = models.ImageField(('Üye Resmi 300x300px'), null= True)
 
+    uye_yk_durum = models.BooleanField(('Yönetim Kurulu Üyesi'), default=False)
+    uye_order = models.IntegerField(('Üye Gösterim Sıralaması'), default= 1)
+
     class Meta:
+        ordering = ('uye_order',)
         verbose_name= 'Üye'
         verbose_name_plural= 'Üyeler'
 
     def __str__(self):
-        return self.uye_name;
+        return self.uye_name
 
     def save(self, *args, **kwargs):
         self.uye_slug = slugify(unidecode(self.uye_name))

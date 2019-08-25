@@ -1,0 +1,42 @@
+{% extends 'mainapp/components/layout.html' %}
+{% load static %}
+
+{% block body %}
+
+<section class="banner-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="banner-title">
+                    <h1>TÜRKAB Yönetimi</h1>
+                </div>
+                <ul class="bread-crumb">
+                    <li><a href="{% url 'index' %}">Ana Sayfa</a></li>
+                    <li><a href="{% url 'yonetim' %}" class="active orange">Yönetim</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="partner-area ash-white-bg pdb30">
+    <div class="container">
+        <div class="heading">
+             <h3>Yönetim Kurulu</h3>
+             <ul>
+                {% for ykUye in ykUyeler %}        
+                   <a href="{% url 'uyedetail' uyeslug=ykUye.uye_slug %}"><li><strong>{{ ykUye.uye_kidem }}</strong> {{ ykUye.uye_name }}</li></a>
+                {% endfor %}
+             </ul>
+             <h4>Üyeler</h4>
+             <ul>
+                {% for normalUye in normalUyeler %}
+                    <a href="{% url 'uyedetail' uyeslug=normalUye.uye_slug %}"><li>{{ normalUye.uye_name }}</li></a>
+                {% endfor %}
+
+             </ul>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

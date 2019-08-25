@@ -3,12 +3,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from .views import index, about, uyedetail, baskaninmesaji, \
-                    uyelikbasvurusu, uyelikbasvurusuformu, iletisim
+                    uyelikbasvurusu, uyelikbasvurusuformu, iletisim, \
+                    yonetim, onurkurulu
 
 urlpatterns = [
     path('', index, name="index"),
     path('hakkimizda', about, name="about"),
     path('baskanin-mesaji', baskaninmesaji, name="baskaninmesaji"),
+    path('yonetim', yonetim, name="yonetim"),
+    path('onur-kurulu', onurkurulu, name="onurkurulu"),
     path('uye/<slug:uyeslug>', uyedetail, name="uyedetail"),
     path('uyelik-basvurusu', uyelikbasvurusu, name="uyelikbasvurusu"),
     path('uyelik-basvurusu-formu', uyelikbasvurusuformu, name="uyelikbasvurusuformu"),

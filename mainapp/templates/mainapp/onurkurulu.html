@@ -1,0 +1,40 @@
+{% extends 'mainapp/components/layout.html' %}
+{% load static %}
+
+{% block body %}
+
+<section class="banner-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="banner-title">
+                        <h1>Onur Kurulu</h1>
+                    </div>
+                    <ul class="bread-crumb">
+                        <li><a href="{% url 'index' %}">Ana Sayfa</a></li>
+                        <li><a href="{% url 'onurkurulu' %}" class="active orange">Onur Kurulu</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="partner-area ash-white-bg pdb30">
+        <div class="container">
+            <div class="heading">
+                 <h3>Onur Kurulu</h3>
+                 <ul>
+                    <li>Prof. Dr. Ayşin ÇOTUK</li>
+                    <li>Prof. Dr. Emine GÜRSOY NASKALİ</li>
+                    <li>Prof. Dr. Gülçin ÇANDARLIOĞLU</li>
+                    <li>Prof. Dr. Günay KUT</li>
+                    <li>Prof. Dr. Nermin ABADAN UNAT</li>
+                    <li>Prof. Dr. Nuran ÜNSAL</li>
+                    <li>Prof. Dr. Oya TOKGÖZ</li>
+                    <li>Prof. Dr. Yadigâr İZMİRLİ</li>
+                 </ul>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
