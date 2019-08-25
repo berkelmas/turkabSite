@@ -1,40 +1,58 @@
 from django.shortcuts import render, redirect
-from .models import Uye, BaskanMesaji, UyelikBasvurusu, Contact
+from .models import Uye, BaskanMesaji, UyelikBasvurusu, Contact, \
+    Kurul
 
 # Create your views here.
 def index(request):
-    uyeler = Uye.objects.all()
-    return render(request, 'mainapp/index.html', {'nbar' : 'index', 'uyeler' : uyeler})
+
+    kurullarUst = Kurul.objects.filter(kurul_ustkurul__isnull = True)
+    kurullarAlt = Kurul.objects.filter(kurul_ustkurul__isnull = False)
+    return render(request, 'mainapp/index.html', {'nbar' : 'index', 'kurullarUst' : kurullarUst, 'kurullarAlt' : kurullarAlt})
 
 def about(request):
-    uyeler = Uye.objects.all()
-    return render(request, 'mainapp/about.html', {'nbar' : 'about', 'uyeler' : uyeler})
+
+    kurullarUst = Kurul.objects.filter(kurul_ustkurul__isnull = True)
+    kurullarAlt = Kurul.objects.filter(kurul_ustkurul__isnull = False)
+    return render(request, 'mainapp/about.html', {'nbar' : 'about', 'kurullarUst' : kurullarUst, 'kurullarAlt' : kurullarAlt})
 
 def uyedetail(request, uyeslug):
     uye = Uye.objects.filter(uye_slug = uyeslug)
     uye = uye[0]
-    uyeler = Uye.objects.all()
-    return render(request, 'mainapp/uyedetail.html', { 'uye' : uye, 'uyeler' : uyeler})
+
+    kurullarUst = Kurul.objects.filter(kurul_ustkurul__isnull = True)
+    kurullarAlt = Kurul.objects.filter(kurul_ustkurul__isnull = False)
+    return render(request, 'mainapp/uyedetail.html', { 'uye' : uye, 'kurullarUst' : kurullarUst, 'kurullarAlt' : kurullarAlt})
 
 def baskaninmesaji(request):
-    uyeler = Uye.objects.all()
+
     baskanmesaji = BaskanMesaji.objects.all()[0]
-    return render(request, 'mainapp/baskaninmesaji.html', { 'uyeler' : uyeler, 'baskanmesaji' : baskanmesaji })
+
+    kurullarUst = Kurul.objects.filter(kurul_ustkurul__isnull = True)
+    kurullarAlt = Kurul.objects.filter(kurul_ustkurul__isnull = False)
+    return render(request, 'mainapp/baskaninmesaji.html', {'kurullarUst' : kurullarUst, 'kurullarAlt' : kurullarAlt, 'baskanmesaji' : baskanmesaji })
 
 def yonetim(request):
     ykUyeler = Uye.objects.filter(uye_yk_durum= True)
     normalUyeler = Uye.objects.filter(uye_yk_durum= False)
-    return render(request, 'mainapp/yonetim.html', {'ykUyeler' : ykUyeler, 'normalUyeler' : normalUyeler})
+
+    kurullarUst = Kurul.objects.filter(kurul_ustkurul__isnull = True)
+    kurullarAlt = Kurul.objects.filter(kurul_ustkurul__isnull = False)
+    return render(request, 'mainapp/yonetim.html', {'ykUyeler' : ykUyeler, 'normalUyeler' : normalUyeler, 'kurullarUst' : kurullarUst, 'kurullarAlt' : kurullarAlt})
 
 def onurkurulu(request):
-    return render(request, 'mainapp/onurkurulu.html')
+    kurullarUst = Kurul.objects.filter(kurul_ustkurul__isnull = True)
+    kurullarAlt = Kurul.objects.filter(kurul_ustkurul__isnull = False)
+    return render(request, 'mainapp/onurkurulu.html', { 'kurullarUst' : KurullarUst, 'kurullarAlt' : kurullarAlt })
 
 def uyelikbasvurusu(request):
-    uyeler = Uye.objects.all()
-    return render(request, 'mainapp/uyelikbasvurusu.html', { 'uyeler' : uyeler })
+
+    kurullarUst = Kurul.objects.filter(kurul_ustkurul__isnull = True)
+    kurullarAlt = Kurul.objects.filter(kurul_ustkurul__isnull = False)
+    return render(request, 'mainapp/uyelikbasvurusu.html', { 'kurullarUst' : KurullarUst, 'kurullarAlt' : kurullarAlt })
 
 def uyelikbasvurusuformu(request):
-    uyeler = Uye.objects.all()
+    kurullarUst = Kurul.objects.filter(kurul_ustkurul__isnull = True)
+    kurullarAlt = Kurul.objects.filter(kurul_ustkurul__isnull = False)
 
     if request.method == 'POST':
         adsoyad = request.POST.get('adsoyad')
@@ -48,10 +66,11 @@ def uyelikbasvurusuformu(request):
         newUyelikBasvurusu = UyelikBasvurusu(basvuru_name = adsoyad, basvuru_dogumyeri_tarihi = dogumyerivetarihi, basvuru_tcno = tckimlikno, basvuru_kurum = kurum, basvuru_uzmanlik = uzmanlik, basvuru_meslekiunvan = meslekiunvan, basvuru_telefon = telefonnumarasi)
         newUyelikBasvurusu.save()
         return redirect('index')
-    return render(request, 'mainapp/uyelikbasvurusuformu.html', { 'uyeler' : uyeler })
+    return render(request, 'mainapp/uyelikbasvurusuformu.html', { 'kurullarUst' : KurullarUst, 'kurullarAlt' : kurullarAlt })
 
 def iletisim(request):
-    uyeler = Uye.objects.all()
+    kurullarUst = Kurul.objects.filter(kurul_ustkurul__isnull = True)
+    kurullarAlt = Kurul.objects.filter(kurul_ustkurul__isnull = False)
 
     if request.method == 'POST':
         adsoyad = request.POST.get('adsoyad')
@@ -62,4 +81,4 @@ def iletisim(request):
         newContact.save()
         return redirect('index')
 
-    return render(request, 'mainapp/iletisim.html', { 'uyeler' : uyeler })
+    return render(request, 'mainapp/iletisim.html', { 'kurullarUst' : KurullarUst, 'kurullarAlt' : kurullarAlt })

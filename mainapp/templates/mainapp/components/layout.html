@@ -89,7 +89,22 @@
                                     <li><a href="{% url 'baskaninmesaji' %}">BİRLİK SÖZLEŞMESİ</a></li>
                                   </ul>
                                </li>
-                               <li ><a href="contact-us.html">KURULLAR</a></li>
+
+                               <li ><a href="contact-us.html">KURULLAR</a>
+                                    <ul class="dropdown">
+                                        {% for kurulUst in kurullarUst %}
+                                            <li><a href="#" style="text-transform: lowercase;">{{ kurulUst.kurul_name_capital }}</a></li>
+                                        {% endfor %}
+                                            <li><a style="cursor: pointer; text-transform: lowercase;">Bilim Kurulları</a>
+                                                <ul class="dropdown">
+                                                    {% for kurulAlt in kurullarAlt %}
+                                                        <li><a href="#" style="text-transform: lowercase;">{{ kurulAlt.kurul_name }}</a></li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </li>
+                                    </ul>
+                                </li>
+
                                <li><a href="#">ÜYELİK BAŞVURUSU</a>
                                   <ul class="dropdown">
                                     <li><a href="#">ÜYELİK BAŞVURU FORMU</a></li>

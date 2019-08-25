@@ -56,6 +56,26 @@ class UyelikBasvurusu(models.Model):
     def __str__(self):
         return self.basvuru_name
 
+class Kurul(models.Model):
+    kurul_name = models.CharField(('Kurul Adı'), max_length= 150)
+    kurul_icerik = RichTextField(('Kurul İçeriği'))
+    kurul_ustkurul = models.CharField(('Üst Kurul'), max_length= 100, null= True, blank= True)
+    
+    kurul_name_capital = models.CharField(('Kurul Adı (Büyük Harf)'), max_length= 150, default= 'kurul-default')
+    kurul_slug = models.SlugField(unique= True, default= 'kurul-default')
+    
+    def save(self, *args, **kwargs):
+        self.kurul_slug = slugify(unidecode(self.kurul_name))
+        self.kurul_name_capital = self.kurul_name.upper()
+        super(Kurul, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return self.kurul_name
+
+    class Meta:
+        verbose_name = 'Kurul'
+        verbose_name_plural = 'Kurullar'
+
 class Contact(models.Model):
     iletisim_name = models.CharField(('Ad-Soyad'), max_length = 150)
     iletisim_contactinfo = models.CharField(('İletişim Adresi'), max_length= 150)
