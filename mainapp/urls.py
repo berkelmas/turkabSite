@@ -6,7 +6,7 @@ from .views import index, about, uyedetail, baskaninmesaji, \
                     uyelikbasvurusu, uyelikbasvurusuformu, iletisim, \
                     yonetim, onurkurulu, kuruldetay, egitimler, projeler, \
                     etkinlikler, birliksozlesmesi, egitimdetay, etkinlikdetay, \
-                    projedetay
+                    projedetay, duyurular, haberler, duyurudetay, haberdetay
                     
 
 urlpatterns = [
@@ -22,6 +22,10 @@ urlpatterns = [
     path('proje/<slug:projeslug>', projedetay, name="projedetay"),
     path('yayinlar', etkinlikler, name="etkinlikler"),
     path('yayın/<slug:etkinlikslug>', etkinlikdetay, name="etkinlikdetay"),
+    path('duyurular', duyurular, name="duyurular"),
+    path('haberler', haberler, name="haberler"),
+    path('haber/<slug:haberslug>', haberdetay, name="haberdetay"),
+    path('duyuru/<slug:duyuruslug>', duyurudetay, name="duyurudetay"),
     path('kurul/<slug:kurulslug>', kuruldetay, name="kuruldetay"),
     path('uye/<slug:uyeslug>', uyedetail, name="uyedetail"),
     path('uyelik-basvurusu', uyelikbasvurusu, name="uyelikbasvurusu"),

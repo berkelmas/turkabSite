@@ -1,0 +1,76 @@
+{% extends 'mainapp/components/layout.html' %}
+{% load static %}
+
+{% block body %}
+
+
+<div class="blog-list-body mt100 pdb90">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <h2 style="padding-bottom : 20px; text-align: center;">Haberlerimiz</h2>
+                    
+                    {% for haber in haberler %}
+                        <div class="col-md-12">
+                            <div class="news-item">
+                            
+                                <div class="news-text">
+                                    <h3><a href="{% url 'haberdetay' haberslug=haber.haber_slug %}">{{ haber.haber_name }}</a></h3>
+                                    <p>{{ haber.haber_icerik |safe|truncatechars_html:400|linebreaks }}</p>
+                                </div>
+                                <a href="{% url 'haberdetay' haberslug=haber.haber_slug %}" class="read-more-icon"><span>+</span></a>
+                            </div><!--/.news-item-->
+                        </div>
+                    {% endfor %}
+
+
+                    <ul class="sune-pagination">
+
+                    {% if haberler.has_previous %}
+                        <li><a href="?page={{ haberler.previous_page_number }}"><i class="fa fa-long-arrow-left"></i>Önceki</a></li>
+                    {% endif %}
+
+                    {% for i in haberler.paginator.page_range %}
+                        <li><a href="?page={{i}}" class="{% if i == haberler.number %}active{% endif %}">{{i}}</a></li>
+                    {% endfor %}
+
+                        {% if haberler.has_next %}
+                        <li><a href="?page={{ haberler.next_page_number }}">Sonraki<i class="fa fa-long-arrow-right"></i></a></li>
+                        {% endif %}
+
+                    </ul>
+
+
+                </div>
+                <div class="col-md-3">
+                    <div class="sidebar">
+
+                        <aside class="blog-page-popular-post">
+                            <div class="border-heading">
+                                <h4>Son haberlerimiz</h4>
+                            </div>
+                            <div class="row">
+                                
+                                {% for haber in uchaber %}
+                                <div class="col-md-12">
+                                    <div class="news-item">
+                                    
+                                        <div class="news-text">
+                                            <h3><a href="{% url 'haberdetay' haberslug=haber.haber_slug %}">{{ haber.haber_name }}</a></h3>
+                                            <p>{{ haber.haber_icerik |safe|truncatechars_html:400|linebreaks }}</p>
+                                        </div>
+                                        <a href="{% url 'haberdetay' haberslug=haber.haber_slug %}" class="read-more-icon"><span>+</span></a>
+                                    </div><!--/.news-item-->
+                                </div>
+                                {% endfor %}
+                        
+                            </div>
+                        </aside>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
