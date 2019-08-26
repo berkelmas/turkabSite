@@ -3,16 +3,16 @@
 
 {% block body %}
 
-<section class="banner-area contact-page-banner">
+<section class="banner-area">
    <div class="container">
        <div class="row">
            <div class="col-md-12">
                <div class="banner-title">
-                   <h1>CONTACT US<span>CONTACT PAGE OF NON-PROFIT CHARITY TEMPLATE.</span></h1>
+                   <h1>Bize Ulaşın<span>TÜRKAB'a Ulaşın</span></h1>
                </div>
                <ul class="bread-crumb">
-                   <li><a href="index.html">HOME</a></li>
-                   <li><a href="#" class="active orange">CONTACT US</a></li>
+                   <li><a href="{% url 'index' %}">Ana Sayfa</a></li>
+                   <li><a href="{% url 'iletisim' %}" class="active orange">İletişim</a></li>
                </ul>
            </div>
        </div>
@@ -28,22 +28,22 @@
                            <div class="icon">
                              <i class="fa fa-mobile"></i>
                            </div>
-                           <span class="orange">MOBILE</span>
+                           <span class="orange">Telefon</span>
                            <span class="mobile-number">+11 (01) 987546</span>
                        </div>
                        <div class="single-information">
                            <div class="icon">
                              <i class="fa fa-address-card"></i>
                            </div>
-                           <span class="orange">EMAIL</span>
-                           <span class="eamil-id">support@yourdomain.com</span>
+                           <span class="orange">E-Mail</span>
+                           <span class="eamil-id">info@turkaborg.tr</span>
                        </div>
                        <div class="single-information">
                            <div class="icon">
                              <i class="fa fa-map-marker"></i>
                            </div>
-                           <span class="orange">ADDRESS</span>
-                           <span  class="current-address">12/D-2, Baker Street Boo, Newhaircut, CA, USA</span>
+                           <span class="orange">Adres</span>
+                           <span  class="current-address">Deneme Mahallesi, Deneme Caddesi No 12 Kadıköy/İstanbul</span>
                        </div>
                    </div>
                    <div class="google-maps-area">

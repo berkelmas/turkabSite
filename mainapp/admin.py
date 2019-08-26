@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Uye, BaskanMesaji, UyelikBasvurusu, Contact, Kurul, \
-        Etkinlik, Proje, Egitim
+        Etkinlik, Proje, Egitim, Haber, Duyuru
 
 class UyeAdmin(admin.ModelAdmin):
     exclude = ('uye_slug',)
@@ -26,6 +26,14 @@ admin.site.register(Egitim, EgitimAdmin)
 class ProjeAdmin(admin.ModelAdmin):
     exclude = ('proje_slug',)
 admin.site.register(Proje, ProjeAdmin)
+
+class HaberAdmin(admin.ModelAdmin):
+    exclude = ('haber_slug',)
+admin.site.register(Haber, HaberAdmin)
+
+class DuyuruAdmin(admin.ModelAdmin):
+    exclude = ('duyuru_slug',)
+admin.site.register(Duyuru, DuyuruAdmin)
 
 class UyelikBasvurusuAdmin(admin.ModelAdmin):
     pass

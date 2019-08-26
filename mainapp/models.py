@@ -133,6 +133,43 @@ class Proje(models.Model):
         self.proje_slug = slugify(unidecode(self.proje_name))
         super(Proje, self).save(*args, **kwargs)
 
+class Duyuru(models.Model):
+    duyuru_name = models.CharField(('Duyuru Başlığı'), max_length= 150)
+    duyuru_tarihi = models.DateField(('Duyuru Tarihi'))
+    duyuru_icerik = RichTextField(('Duyuru İçeriği'))
+
+    duyuru_slug = models.SlugField(('Duyuru Slug'), unique= True)
+
+    class Meta:
+        verbose_name = 'Duyuru'
+        verbose_name_plural = 'Duyurular'
+        ordering = ('-duyuru_tarihi',)
+
+    def __str__(self):
+        return self.duyuru_name
+    
+    def save(self, *args, **kwargs):
+        self.duyuru_slug = slugify(unidecode(self.duyuru_name))
+        super(Duyuru, self).save(*args, **kwargs)
+
+class Haber(models.Model):
+    haber_name = models.CharField(('Haber Başlığı'), max_length= 150)
+    haber_tarihi = models.DateField(('Haber Tarihi'))
+    haber_icerik = RichTextField(('Haber İçeriği'))
+
+    haber_slug = models.SlugField(('Haber Slug'), unique = True)
+
+    def __str__(self):
+        return self.haber_name
+
+    class Meta:
+        verbose_name = 'Haber'
+        verbose_name_plural = 'Haberler'
+        ordering = ('-haber_tarihi',)
+
+    def save(self, *args, **kwargs):
+        self.haber_slug = slugify(unidecode(self.haber_name))
+        super(Haber, self).save(*args, **kwargs)
 
 class Contact(models.Model):
     iletisim_name = models.CharField(('Ad-Soyad'), max_length = 150)

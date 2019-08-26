@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Uye, BaskanMesaji, UyelikBasvurusu, Contact, \
-    Kurul, Etkinlik, Proje, Egitim
+    Kurul, Etkinlik, Proje, Egitim, Duyuru, Haber
 
 from django.core.paginator import Paginator
 
@@ -115,8 +115,51 @@ def etkinlikdetay(request, etkinlikslug):
     kurullarAlt = Kurul.objects.filter(kurul_ustkurul__isnull = False)
     return render(request, 'mainapp/etkinlikdetay.html', { 'etkinlik' : etkinlik, 'ucetkinlik' : ucetkinlik, 'kurullarUst' : kurullarUst, 'kurullarAlt' : kurullarAlt })
 
+def duyurular(request):
+    duyuru_list = Duyuru.objects.all()
+
+    paginator = Paginator(duyuru_list, 3)
+    page = request.GET.get('page')
+    duyurular = paginator.get_page(page)
+
+    ucduyuru = Duyuru.objects.all()[:3]
+    kurullarUst = Kurul.objects.filter(kurul_ustkurul__isnull = True)
+    kurullarAlt = Kurul.objects.filter(kurul_ustkurul__isnull = False)
+    return render(request, 'mainapp/duyurular.html', { 'duyurular' : duyurular, 'ucduyuru' : ucduyuru, 'kurullarAlt' : kurullarAlt, 'kurullarUst' : kurullarUst })
+
+def haberler(request):
+    haber_list = Haber.objects.all()
+
+    paginator = Paginator(haber_list, 3)
+    page = request.GET.get('page')
+    haberler = paginator.get_page(page)
+
+    uchaber = Haber.objects.all()[:3]
+    kurullarUst = Kurul.objects.filter(kurul_ustkurul__isnull = True)
+    kurullarAlt = Kurul.objects.filter(kurul_ustkurul__isnull = False)
+    return render(request, 'mainapp/haberler.html', { 'haberler' : haberler, 'uchaber' : uchaber, 'kurullarAlt' : kurullarAlt, 'kurullarUst' : kurullarUst })
+
+def duyurudetay(request, duyuruslug):
+    duyuru = Duyuru.objects.get(duyuru_slug= duyuruslug)
+
+    ucduyuru = Duyuru.objects.all()[:3]
+    kurullarUst = Kurul.objects.filter(kurul_ustkurul__isnull = True)
+    kurullarAlt = Kurul.objects.filter(kurul_ustkurul__isnull = False)
+    return render(request, 'mainapp/duyurudetay.html', { 'duyuru' : duyuru, 'ucduyuru' : ucduyuru, 'kurullarAlt' : kurullarAlt, 'kurullarUst' : kurullarUst })
+
+def haberdetay(request, haberslug):
+    haber = Haber.objects.get(haber_slug= haberslug)
+
+    uchaber = Haber.objects.all()[:3]
+    kurullarUst = Kurul.objects.filter(kurul_ustkurul__isnull = True)
+    kurullarAlt = Kurul.objects.filter(kurul_ustkurul__isnull = False)
+    return render(request, 'mainapp/haberdetay.html', { 'haber' : haber, 'kurullarUst' : kurullarUst, 'kurullarAlt' : kurullarAlt })
+
 def birliksozlesmesi(request):
-    return render(request, 'mainapp/birliksozlesmesi.html')
+
+    kurullarUst = Kurul.objects.filter(kurul_ustkurul__isnull = True)
+    kurullarAlt = Kurul.objects.filter(kurul_ustkurul__isnull = False)
+    return render(request, 'mainapp/birliksozlesmesi.html', { 'kurullarAlt' : kurullarAlt, 'kurullarUst' : kurullarUst })
 
 def uyelikbasvurusu(request):
 
