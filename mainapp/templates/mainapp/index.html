@@ -51,37 +51,19 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-12">
-                            <div class="news-item">
-                         
-                                <div class="news-text">
-                                    <h3><a href="#">The Fisher House Child</a></h3>
-                                    <p>Donec venenatis metus at diam condimentum pretium. Integer aliquet a turpis.</p>
-                                </div>
-                                <a href="#" class="read-more-icon"><span>+</span></a>
-                            </div><!--/.news-item-->
-                        </div>
-                        <div class="col-md-12">
-                            <div class="news-item">
-         
-                                <div class="news-text">
-                                    <h3><a href="#">The Fisher House Child</a></h3>
-                                    <p>Donec venenatis metus at diam condimentum pretium. Integer aliquet a turpis.</p>
-                                </div>
-                                <a href="#" class="read-more-icon"><span>+</span></a>
-                            </div><!--/.news-item-->
-                        </div>
-                        <div class="col-md-12">
-                            <div class="news-item">
+                        {% for haber in uchaber %}
+                            <div class="col-md-12">
+                                <div class="news-item">
                             
-                                <div class="news-text">
-                                    <h3><a href="#">The Fisher House Child</a></h3>
-                                    <p>Donec venenatis metus at diam condimentum pretium. Integer aliquet a turpis.</p>
-                                </div>
-                                <a href="#" class="read-more-icon"><span>+</span></a>
-                            </div><!--/.news-item-->
-                        </div>
-                        <div class="all-causes-page text-center ">Tüm <a href="#">Haberlerimize Buradan </a>Ulaşabilirsiniz.</div>
+                                    <div class="news-text">
+                                        <h3><a href="{% url 'haberdetay' haberslug=haber.haber_slug %}">{{ haber.haber_name }}</a></h3>
+                                        <p>{{ haber.haber_icerik |safe|truncatechars_html:400|linebreaks }}</p>
+                                    </div>
+                                    <a href="{% url 'haberdetay' haberslug=haber.haber_slug %}" class="read-more-icon"><span>+</span></a>
+                                </div><!--/.news-item-->
+                            </div>
+                        {% endfor %}
+                        <div class="all-causes-page text-center ">Tüm <a href="{% url 'haberler' %}">Haberlerimize Buradan </a>Ulaşabilirsiniz.</div>
                     </div>
                 </div>
 
@@ -92,38 +74,19 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-md-12">
-                                <div class="news-item">
-                             
-                                    <div class="news-text">
-                                        <h3><a href="#">The Fisher House Child</a></h3>
-                                        <p>Donec venenatis metus at diam condimentum pretium. Integer aliquet a turpis.</p>
-                                    </div>
-                                    <a href="#" class="read-more-icon"><span>+</span></a>
-                                </div><!--/.news-item-->
-                            </div>
-                            <div class="col-md-12">
-                                <div class="news-item">
-             
-                                    <div class="news-text">
-                                        <h3><a href="#">The Fisher House Child</a></h3>
-                                        <p>Donec venenatis metus at diam condimentum pretium. Integer aliquet a turpis.</p>
-                                    </div>
-                                    <a href="#" class="read-more-icon"><span>+</span></a>
-                                </div><!--/.news-item-->
-                            </div>
-                            <div class="col-md-12">
-                                <div class="news-item">
+                            {% for duyuru in ucduyuru %}    
+                                <div class="col-md-12">
+                                    <div class="news-item">
                                 
-                                    <div class="news-text">
-                                        <h3><a href="#">The Fisher House Child</a></h3>
-                                        <p>Donec venenatis metus at diam condimentum pretium. Integer aliquet a turpis.</p>
-                                    </div>
-                                    <a href="#" class="read-more-icon"><span>+</span></a>
-                                </div><!--/.news-item-->
-                            </div>
-
-                            <div class="all-causes-page text-center ">Tüm <a href="#">Duyurularımıza Buradan </a>Ulaşabilirsiniz.</div>
+                                        <div class="news-text">
+                                            <h3><a href="{% url 'duyurudetay' duyuruslug=duyuru.duyuru_slug %}">{{ duyuru.duyuru_name }}</a></h3>
+                                            <p>{{ duyuru.duyuru_icerik |safe|truncatechars_html:400|linebreaks }}</p>
+                                        </div>
+                                        <a href="{% url 'duyurudetay' duyuruslug=duyuru.duyuru_slug %}" class="read-more-icon"><span>+</span></a>
+                                    </div><!--/.news-item-->
+                                </div>
+                            {% endfor %}
+                            <div class="all-causes-page text-center ">Tüm <a href="{% url 'duyurular' %}">Duyurularımıza Buradan </a>Ulaşabilirsiniz.</div>
                         </div>
                     </div>
             </div>

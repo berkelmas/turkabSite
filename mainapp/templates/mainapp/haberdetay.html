@@ -3,5 +3,58 @@
 
 {% block body %}
 
+<div class="blog-detail-body mt100 pdb90">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="blog-list-item">
+                    <div class="meta-box">
+                        <span class="date">{{ haber.haber_tarihi }}<i class="fa fa-dot-circle-o"></i></span>
+                    </div>
+                    <h3>{{ haber.haber_name }}</h3>
+                    <div class="blog-list-text">
+                        {{ haber.haber_icerik | safe }}
+                    </div>
+                </div><!--/.blog-list-item-->
+                <div class="share-social-media">
+                    <span>Sosyal Medyada Biz: </span>
+                    <ul class="colorfull-social-icon ">
+                         <li><a href="#" class="facebook-icon"><i class="fa fa-facebook"></i></a></li>
+                         <li><a href="#" class="twitter-icon"><i class="fa fa-twitter"></i></a></li>
+                         <li><a href="#" class="google-icon"><i class="fa fa-google"></i></a></li>
+                         <li><a href="#" class="linked-icon"><i class="fa fa-linkedin"></i></a></li>
+                     </ul>
+                </div>
+  
+            </div>
+            <div class="col-md-3">
+                <div class="sidebar">
+               
+                    <aside class="blog-page-popular-post">
+                        <div class="border-heading">
+                            <h4>Son Haberler</h4>
+                        </div>
+                        <div class="row">
+
+                            {% for haber in uchaber %}
+                            <div class="col-md-12">
+                                <div class="news-item">
+                                
+                                    <div class="news-text">
+                                        <h3><a href="{% url 'haberdetay' haberslug=haber.haber_slug %}">{{ haber.haber_name }}</a></h3>
+                                        <p>{{ haber.haber_icerik |safe|truncatechars_html:400|linebreaks }}</p>
+                                    </div>
+                                    <a href="{% url 'haberdetay' haberslug=haber.haber_slug %}" class="read-more-icon"><span>+</span></a>
+                                </div><!--/.news-item-->
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </aside>
+            
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
