@@ -9,10 +9,11 @@ def index(request):
 
     uchaber = Haber.objects.all()[:3]
     ucduyuru = Duyuru.objects.all()[:3]
+    ucyayin = Etkinlik.objects.all()[:3]
     
     kurullarUst = Kurul.objects.filter(kurul_ustkurul__isnull = True)
     kurullarAlt = Kurul.objects.filter(kurul_ustkurul__isnull = False)
-    return render(request, 'mainapp/index.html', {'nbar' : 'index', 'kurullarUst' : kurullarUst, 'kurullarAlt' : kurullarAlt, 'uchaber' : uchaber, 'ucduyuru' : ucduyuru})
+    return render(request, 'mainapp/index.html', {'nbar' : 'index', 'kurullarUst' : kurullarUst, 'kurullarAlt' : kurullarAlt, 'uchaber' : uchaber, 'ucduyuru' : ucduyuru, 'ucyayin' : ucyayin})
 
 def about(request):
 

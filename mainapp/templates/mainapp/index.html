@@ -1,12 +1,19 @@
 {% extends 'mainapp/components/layout.html' %}
 {% load static %}
 
+{% block meta %}
+
+<title>TURKAB - Ana Sayfa </title>
+<meta name="description" content="TURKAB, Türk Kadın Akademisyenler Birliğinin {{ egitim.egitim_name }} egitimini açıklayan sayfadır.">
+
+{% endblock %}
+
 {% block body %}
 
 <section class="slider-area">
     <div class="slider-carousel">
         <div class="single-item">
-            <img src="{% static 'mainapp/images/turkab-dernek-slider-1.png' %}" alt="First slide">
+            <img src="{% static 'mainapp/images/turkab-slider-1.png' %}" alt="First slide">
            <div class="overlay"></div>
             <div class="container-parent">
                 <div class="container">
@@ -89,6 +96,42 @@
                             <div class="all-causes-page text-center ">Tüm <a href="{% url 'duyurular' %}">Duyurularımıza Buradan </a>Ulaşabilirsiniz.</div>
                         </div>
                     </div>
+            </div>
+
+
+        </div>
+    </section><!--/.recent-news-area-->
+
+
+    
+    <section class="recent-news-area">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-12">
+                    
+                    <div class="section-heading section-padding">
+                        <h2><span>Yayınlarımız</span>Bizim Köşemiz</h2>
+                    </div>
+
+                    <div class="row">
+                        {% for etkinlik in ucyayin %}
+                            <div class="col-md-12">
+                                <div class="news-item">
+                            
+                                    <div class="news-text">
+                                        <h3><a href="{% url 'etkinlikdetay' etkinlikslug=etkinlik.etkinlik_slug %}">{{ etkinlik.etkinlik_name }}</a></h3>
+                                        <p>{{ etkinlik.etkinlik_icerik |safe|truncatechars_html:400|linebreaks }}</p>
+                                    </div>
+                                    <a href="{% url 'etkinlikdetay' etkinlikslug=etkinlik.etkinlik_slug %}" class="read-more-icon"><span>+</span></a>
+                                </div><!--/.news-item-->
+                            </div>
+                        {% endfor %}
+                        <div class="all-causes-page text-center ">Tüm <a href="{% url 'etkinlikler' %}">Yayınlarımıza Buradan </a>Ulaşabilirsiniz.</div>
+                    </div>
+                </div>
+
+       
             </div>
 
 

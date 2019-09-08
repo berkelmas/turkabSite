@@ -1,6 +1,13 @@
 {% extends 'mainapp/components/layout.html' %}
 {% load static %}
 
+{% block meta %}
+
+<title>TURKAB - Üyelik Başvurusu </title>
+<meta name="description" content="TURKAB, Türk Kadın Akademisyenler Birliğine üyelik başvurusu yapılan üyelik formunun bulunduğu sayfadır.">
+
+{% endblock %}
+
 {% block body %}
 <div class="container">
   <div class="row">
@@ -56,8 +63,16 @@
                       </div>
                   </div>
               </div>
+              <br>
+              <div style="display : flex; justify-content: flex-start; align-items:flex-start; flex-direction: column;">
+                <a style="color : #48A4AA;" href="{% static 'mainapp/documents/uyelik-basvuru-formu.docx' %}" download>Başvuru Formunu Buraya Tıklayarak İndirebilirsiniz.</a>
+                <p> * Üyelik başvurusunda bulunanlar, Üyelik Başvuru Formu ile birlikte Birlik
+                    Sözleşmesini de imzalayarak tarafımıza göndereceklerdir.</p>
+              </div>
+                
               <button class="sune-btn" type="submit">BAŞVUR</button>
           </form>
+          <br>
       </div>
 
     </div>

@@ -1,6 +1,13 @@
 {% extends 'mainapp/components/layout.html' %}
 {% load static %}
 
+{% block meta %}
+
+<title>TURKAB - {{ uye.uye_name }} </title>
+<meta name="description" content="TURKAB, Türk Kadın Akademisyenler Birliğinin {{ uye.uye_name }} üyesi hakkında açıklamalarda bulunan sayfadır.">
+
+{% endblock %}
+
 {% block body %}
 <br><br>
 <section class="urgent-causes-area ash-white-bg">

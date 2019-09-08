@@ -1,7 +1,70 @@
 {% extends 'mainapp/components/layout.html' %}
 {% load static %}
 
+{% block meta %}
+
+<title>TURKAB - {{ duyuru.duyuru_name }}</title>
+<meta name="description" content="TURKAB, Türk Kadın Akademisyenler Birliğinin {{ duyuru.duyuru_name }} duyurusudur.">
+
+{% endblock %}
+
 {% block body %}
 
+<div class="blog-detail-body mt100 pdb90">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="blog-list-item">
+                    <div class="image">
+                        <img src="{% static 'mainapp/images/turkab-detail-resim.png' %}" class="img-responsive" alt="blog image">
+                    </div>
+                    <div class="meta-box">
+                        <span class="date">{{ duyuru.duyuru_tarihi }}<i class="fa fa-dot-circle-o"></i></span>
+                    </div>
+                    <h3>{{ duyuru.duyuru_name }}</h3>
+                    <div class="blog-list-text">
+                        {{ duyuru.duyuru_icerik | safe }}
+                    </div>
+                </div><!--/.blog-list-item-->
+                <div class="share-social-media">
+                    <span>Sosyal Medyada Biz: </span>
+                    <ul class="colorfull-social-icon ">
+                         <li><a href="#" class="facebook-icon"><i class="fa fa-facebook"></i></a></li>
+                         <li><a href="#" class="twitter-icon"><i class="fa fa-twitter"></i></a></li>
+                         <li><a href="#" class="google-icon"><i class="fa fa-google"></i></a></li>
+                         <li><a href="#" class="linked-icon"><i class="fa fa-linkedin"></i></a></li>
+                     </ul>
+                </div>
+  
+            </div>
+            <div class="col-md-3">
+                <div class="sidebar">
+               
+                    <aside class="blog-page-popular-post">
+                        <div class="border-heading">
+                            <h4>Son Duyurular</h4>
+                        </div>
+                        <div class="row">
+
+                            {% for duyuru in ucduyuru %}
+                            <div class="col-md-12">
+                                <div class="news-item">
+                                
+                                    <div class="news-text">
+                                        <h3><a href="{% url 'duyurudetay' duyuruslug=duyuru.duyuru_slug %}">{{ duyuru.duyuru_name }}</a></h3>
+                                        <p>{{ duyuru.duyuru_icerik |safe|truncatechars_html:400|linebreaks }}</p>
+                                    </div>
+                                    <a href="{% url 'duyurudetay' duyuruslug=duyuru.duyuru_slug %}" class="read-more-icon"><span>+</span></a>
+                                </div><!--/.news-item-->
+                            </div>
+                        {% endfor %}
+                        </div>
+                    </aside>
+            
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

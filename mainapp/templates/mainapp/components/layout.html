@@ -4,15 +4,15 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    {% block meta %}
+
     <title>Türk Kadın Akademisyenler Birliği</title>
-    <meta name="description" content="">
+    <meta name="description" content="TURKAB, Türk Kadın Akademisyenler Birliğinin Resmi Web Sitesidir.">
+
+    {% endblock %}
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- ================= Favicon ================== -->
-    <link rel="icon" type="image/png" sizes="192x192"  href="images/favicon/android-icon-192x192.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-icon-72x72.png">
-    <link rel="icon" sizes="72x72" href="images/favicon/android-icon-72x72.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png">
 
     <!--Google Font-->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
@@ -47,17 +47,17 @@
 <body>
 
     <header>
-        <div class="top-bar-area">
+        <div style="padding: 0;" class="top-bar-area">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="logo">
-                            <a href="{% url 'index' %}"><img style="height: 53px;" src="{% static 'mainapp/images/turkab-logo-turkuaz.png' %}" alt="logo" /></a>
+                            <a href="{% url 'index' %}"><img style="height: 90px;" src="{% static 'mainapp/images/turkab-logo-turkuaz.png' %}" alt="logo" /></a>
                         </div>
                     </div>
                     <div class="col-md-8">
                         <div class="text-right">
-                            <img style="height: 80px;" src="{% static 'mainapp/images/turk-bayragi-gif.gif' %}" alt="">
+                            <img style="height: 110px; padding-top: 10px;" src="{% static 'mainapp/images/turkab-ataturk-resmi.jpeg' %}" alt="">
                         </div>
                     </div>
                 </div>
@@ -69,46 +69,46 @@
                     <div class="col-md-9">
                         <nav id="menuzord" class="menuzord">
                            <ul class="menuzord-menu">
-                               <li><a href="{% url 'index' %}" {% if nbar == 'index' %} class="active" {% endif %} >Ana Sayfa</a></li>
-                               <li><a style="cursor: pointer;" {% if nbar == 'about' %} class="active" {% endif %}>Hakkımızda</a>
+                               <li><a href="{% url 'index' %}" {% if nbar == 'index' %} class="active" {% endif %} ><strong>Ana Sayfa</strong></a></li>
+                               <li><a style="cursor: pointer;" {% if nbar == 'about' %} class="active" {% endif %}><strong>Hakkımızda</strong></a>
                                   <ul class="dropdown">
-                                    <li><a href="{% url 'about' %}">GÖREV, HEDEF VE DEĞERLERİMİZ</a></li>
-                                    <li><a href="{% url 'baskaninmesaji' %}">BAŞKANIN MESAJI</a></li>
-                                    <li><a href="{% url 'yonetim' %}">YÖNETİM KURULU</a></li>
-                                    <li><a href="{% url 'birliksozlesmesi' %}">BİRLİK SÖZLEŞMESİ</a></li>
+                                    <li><a href="{% url 'about' %}"><strong>GÖREV, HEDEF VE DEĞERLERİMİZ</strong></strong></a></li>
+                                    <li><a href="{% url 'baskaninmesaji' %}"><strong>BAŞKANIN MESAJI</strong></strong></a></li>
+                                    <li><a href="{% url 'yonetim' %}"><strong>YÖNETİM KURULU</strong></a></li>
+                                    <li><a href="{% url 'birliksozlesmesi' %}"><strong>BİRLİK SÖZLEŞMESİ</strong></a></li>
                                   </ul>
                                </li>
 
-                               <li ><a style="cursor: pointer;">KURULLAR</a>
+                               <li ><a style="cursor: pointer;"><strong>KURULLAR</strong></a>
                                     <ul class="dropdown">
                                         {% for kurulUst in kurullarUst %}
-                                            <li><a href="{% url 'kuruldetay' kurulslug=kurulUst.kurul_slug %}" style="text-transform: lowercase;">{{ kurulUst.kurul_name_capital }}</a></li>
+                                            <li><a href="{% url 'kuruldetay' kurulslug=kurulUst.kurul_slug %}"><strong>{{ kurulUst.kurul_name_capital }}</strong></a></li>
                                         {% endfor %}
-                                            <li><a style="cursor: pointer; text-transform: lowercase;">Bilim Kurulları</a>
+                                            <li><a style="cursor: pointer;"><strong>BİLİM KURULLARI</strong></a>
                                                 <ul class="dropdown">
                                                     {% for kurulAlt in kurullarAlt %}
-                                                        <li><a href="{% url 'kuruldetay' kurulslug=kurulAlt.kurul_slug %}" style="text-transform: lowercase;">{{ kurulAlt.kurul_name }}</a></li>
+                                                        <li><a href="{% url 'kuruldetay' kurulslug=kurulAlt.kurul_slug %}"><strong>{{ kurulAlt.kurul_name }}</strong></a></li>
                                                     {% endfor %}
                                                 </ul>
                                             </li>
                                     </ul>
                                 </li>
 
-                                <li><a style="cursor: pointer;">ETKİNLİKLERİMİZ</a>
+                                <li><a style="cursor: pointer;"><strong>ETKİNLİKLERİMİZ</strong></a>
                                     <ul class="dropdown">
-                                        <li><a style="text-transform: lowercase;" href="{% url 'egitimler' %}">EĞİTİMLERİMİZ</a></li>
-                                        <li><a style="text-transform: lowercase;" href="{% url 'projeler' %}">PROJELERİMİZ</a></li>
-                                        <li><a style="text-transform: lowercase;" href="{% url 'etkinlikler' %}">Yayınlarımız</a></li>
+                                        <li><a href="{% url 'egitimler' %}"><strong>EĞİTİMLERİMİZ</strong></a></li>
+                                        <li><a href="{% url 'projeler' %}"><strong>PROJELERİMİZ</strong> </a></li>
+                                        <li><a href="{% url 'etkinlikler' %}"><strong>YAYINLARIMIZ</strong> </a></li>
                                     </ul>
                                 </li>
 
-                               <li><a style="cursor: pointer;">ÜYELİK BAŞVURUSU</a>
+                               <li><a style="cursor: pointer;"><strong>ÜYELİK</strong></a>
                                   <ul class="dropdown">
-                                    <li><a style="text-transform : lowercase;" href="{% url 'uyelikbasvurusu' %}">üyelik koşulları</a></li>
-                                    <li><a style="text-transform : lowercase;" href="{% url 'uyelikbasvurusuformu' %}">üyelik formu</a></li>
+                                    <li><a href="{% url 'uyelikbasvurusu' %}"><strong>ÜYELİK KOŞULLARI</strong></a></li>
+                                    <li><a href="{% url 'uyelikbasvurusuformu' %}"><strong>ÜYELİK FORMU</strong></a></li>
                                 </ul>
                                </li>
-                               <li ><a href="{% url 'iletisim' %}">İLETİŞİM</a></li>
+                               <li ><a href="{% url 'iletisim' %}"><strong>İLETİŞİM</strong></a></li>
                            </ul>
                        </nav>
 
@@ -138,8 +138,6 @@
                         <div class="footer-address text-right">
                             <p>TÜRKAB, Türkiye Cumhuriyeti Devleti’nin temel ilkelerine bağlı, devletine, milletine ve insanlığa hizmet etmeyi gaye edinen kadın akademisyenlerin oluşturduğu bir sivil toplum kuruluşudur</p>
                             <ul>
-                                <li><i class="fa fa-map-marker"></i> Deneme Mahallesi, Deneme Caddesi <br> No: 35 Kadıköy/İstanbul </li>
-                                <li><i class="ion-iphone"></i> +11 (09) 876543 </li>
                                 <li><i class="ion-forward"></i> info@turkab.org.tr </li>
                             </ul>
                         </div>
@@ -150,7 +148,7 @@
         <div class="main-footer">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div class="footer-important-link">
                             <h4 class="orange">ÖNEMLİ LİNKLER</h4>
                             <ul>
@@ -162,7 +160,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div class="footer-important-link">
                             <h4 class="orange">ÖNEMLİ LİNKLER</h4>
                             <ul>
@@ -175,10 +173,23 @@
                         </div>
                     </div>
 
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-important-link">
+                            <h4 class="orange">FAYDALI BAĞLANTILAR</h4>
+                            <ul>
+                                <li><a href="https://www.yok.gov.tr/">YÖK</a></li>
+                                <li><a href="https://www.tubitak.gov.tr/">TUBİTAK</a></li>
+                                <li><a href="http://www.tuba.gov.tr/tr/">TÜBA</a></li>
+                                <li><a href="http://ttk.gov.tr">TTK</a></li>
+                                <li><a href="https://www.ayk.gov.tr">AYK</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
-        <div class="footer-bar">
+        <div style="border-top: 1px solid #f7f7f7;" class="footer-bar">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-lg-push-6">

@@ -1,6 +1,13 @@
 {% extends 'mainapp/components/layout.html' %}
 {% load static %}
 
+{% block meta %}
+
+<title>TURKAB - {{ egitim.egitim_name }}</title>
+<meta name="description" content="TURKAB, Türk Kadın Akademisyenler Birliğinin {{ egitim.egitim_name }} egitimini açıklayan sayfadır.">
+
+{% endblock %}
+
 {% block body %}
 
 <div class="blog-detail-body mt100 pdb90">
