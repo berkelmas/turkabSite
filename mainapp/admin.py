@@ -9,6 +9,7 @@ class UyeAdmin(admin.ModelAdmin):
 admin.site.register(Uye, UyeAdmin)
 
 class BaskaninmesajiAdmin(admin.ModelAdmin):
+    pass
     ##def has_add_permission(self, request):
         ##return False
 admin.site.register(BaskanMesaji, BaskaninmesajiAdmin)
