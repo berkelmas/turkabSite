@@ -16,7 +16,7 @@
             <div class="col-md-9">
                 <div class="blog-list-item">
                     <div class="image">
-                        <img src="{% static 'mainapp/images/turkab-detail-resim.png' %}" class="img-responsive" alt="blog image">
+                        <img src="{% static 'mainapp/images/turkkab-makale-resim.png' %}" class="img-responsive" alt="blog image">
                     </div>
                     <div class="meta-box">
                         <span class="date">{{ duyuru.duyuru_tarihi }}<i class="fa fa-dot-circle-o"></i></span>
@@ -51,8 +51,8 @@
                                 <div class="news-item">
                                 
                                     <div class="news-text">
-                                        <h3><a href="{% url 'duyurudetay' duyuruslug=duyuru.duyuru_slug %}">{{ duyuru.duyuru_name }}</a></h3>
-                                        <p>{{ duyuru.duyuru_icerik |safe|truncatechars_html:400|linebreaks }}</p>
+                                        <h3><a href="{% url 'duyurudetay' duyuruslug=duyuru.duyuru_slug %}">{{ duyuru.duyuru_name |truncatechars_html:100 }}</a></h3>
+                                        <p>{{ duyuru.duyuru_icerik |safe|truncatechars_html:100|linebreaks }}</p>
                                     </div>
                                     <a href="{% url 'duyurudetay' duyuruslug=duyuru.duyuru_slug %}" class="read-more-icon"><span>+</span></a>
                                 </div><!--/.news-item-->

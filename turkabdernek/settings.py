@@ -25,7 +25,7 @@ SECRET_KEY = '=9veis9do2gr0=93!y78e#f*dc@s57725$!pfap7kecc0ovb%b'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'www.turkkab.org.tr', 'turkkab.org.tr']
 
 
 # Application definition

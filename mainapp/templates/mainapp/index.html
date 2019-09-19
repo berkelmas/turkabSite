@@ -19,9 +19,12 @@
                 <div class="container">
                     <div class="sune-carousel-caption">
                        <h1>
-                       <span class="everyone">Akademisyenler Birliği
-                       <span class="subheading">Türk Kadın Akademisyenler Birliği</span></span></h1>
-                        <p>TÜRKAB, Türkiye Cumhuriyeti Devleti’nin temel ilkelerine bağlı, devletine, milletine ve insanlığa hizmet etmeyi gaye edinen kadın akademisyenlerin oluşturduğu bir sivil toplum kuruluşudur.</p>
+                       <span class="everyone">Akademik Birikim TÜRKKAB'da Buluştu
+                        <!--
+                       <span class="subheading">Türk Kadın Akademisyenler Birliği</span>
+                        -->
+                        </span></h1>
+                        <p>TÜRKKAB, Türkiye Cumhuriyeti Devleti’nin temel ilkelerine bağlı, devletine, milletine ve insanlığa hizmet etmeyi gaye edinen kadın akademisyenlerin oluşturduğu bir sivil toplum kuruluşudur.</p>
                         <a href="#" class="more-stories">Daha Fazlası <i class="ion-android-arrow-forward"></i></a>
                     </div>
                 </div>
@@ -63,8 +66,8 @@
                                 <div class="news-item">
                             
                                     <div class="news-text">
-                                        <h3><a href="{% url 'haberdetay' haberslug=haber.haber_slug %}">{{ haber.haber_name }}</a></h3>
-                                        <p>{{ haber.haber_icerik |safe|truncatechars_html:400|linebreaks }}</p>
+                                        <h3><a href="{% url 'haberdetay' haberslug=haber.haber_slug %}">{{ haber.haber_name | truncatechars_html:100 }}</a></h3>
+                                        <p>{{ haber.haber_icerik |safe|truncatechars_html:200|linebreaks }}</p>
                                     </div>
                                     <a href="{% url 'haberdetay' haberslug=haber.haber_slug %}" class="read-more-icon"><span>+</span></a>
                                 </div><!--/.news-item-->
@@ -86,8 +89,8 @@
                                     <div class="news-item">
                                 
                                         <div class="news-text">
-                                            <h3><a href="{% url 'duyurudetay' duyuruslug=duyuru.duyuru_slug %}">{{ duyuru.duyuru_name }}</a></h3>
-                                            <p>{{ duyuru.duyuru_icerik |safe|truncatechars_html:400|linebreaks }}</p>
+                                            <h3><a href="{% url 'duyurudetay' duyuruslug=duyuru.duyuru_slug %}">{{ duyuru.duyuru_name | truncatechars_html:100 }}</a></h3>
+                                            <p>{{ duyuru.duyuru_icerik |safe|truncatechars_html:200|linebreaks }}</p>
                                         </div>
                                         <a href="{% url 'duyurudetay' duyuruslug=duyuru.duyuru_slug %}" class="read-more-icon"><span>+</span></a>
                                     </div><!--/.news-item-->
