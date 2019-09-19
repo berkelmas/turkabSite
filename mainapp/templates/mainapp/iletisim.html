@@ -32,6 +32,11 @@
 
                <div class="comment-box text-center">
                    <div class="border-heading">
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-success">{{message}}</div>
+                            {% endfor %}
+                        {% endif %}
                        <h4>BİZE ULAŞIN</h4>
                    </div>
                    <form method="POST">
@@ -52,6 +57,7 @@
                            <textarea name="mesaj" class="form-control" placeholder="Mesajınız"></textarea>
                        </div>
                        <button class="sune-btn" type="submit">Gönder</button>
+
                    </form>
                </div>
            </div>

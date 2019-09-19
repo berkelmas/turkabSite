@@ -3,6 +3,7 @@ from .models import Uye, BaskanMesaji, UyelikBasvurusu, Contact, \
     Kurul, Etkinlik, Proje, Egitim, Duyuru, Haber
 
 from django.core.paginator import Paginator
+from django.contrib import messages
 
 # Create your views here.
 def index(request):
@@ -186,7 +187,8 @@ def uyelikbasvurusuformu(request):
 
         newUyelikBasvurusu = UyelikBasvurusu(basvuru_name = adsoyad, basvuru_dogumyeri_tarihi = dogumyerivetarihi, basvuru_tcno = tckimlikno, basvuru_kurum = kurum, basvuru_uzmanlik = uzmanlik, basvuru_meslekiunvan = meslekiunvan, basvuru_telefon = telefonnumarasi)
         newUyelikBasvurusu.save()
-        return redirect('index')
+        messages.success(request, 'İletişim Formu Gönderimi Başarılı!')     
+        return redirect('uyelikbasvurusuformu')
     return render(request, 'mainapp/uyelikbasvurusuformu.html', { 'kurullarUst' : kurullarUst, 'kurullarAlt' : kurullarAlt })
 
 def iletisim(request):
@@ -200,6 +202,7 @@ def iletisim(request):
 
         newContact = Contact(iletisim_name= adsoyad, iletisim_contactinfo= iletisimbilgisi, iletisim_mesaj= mesaj)
         newContact.save()
-        return redirect('index')
+        messages.success(request, 'İletişim Formu Gönderimi Başarılı!')
+        return redirect('iletisim')
 
     return render(request, 'mainapp/iletisim.html', { 'kurullarUst' : kurullarUst, 'kurullarAlt' : kurullarAlt })

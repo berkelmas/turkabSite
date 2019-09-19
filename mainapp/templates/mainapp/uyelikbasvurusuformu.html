@@ -12,7 +12,12 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-
+        {% if messages %}
+            <br>
+            {% for message in messages %}
+                <div class="alert alert-success">{{message}}</div>
+            {% endfor %}
+        {% endif %}
       <div class="comment-box text-center">
           <div class="border-heading">
               <h4>ÜYELİK BAŞVURUSU</h4>

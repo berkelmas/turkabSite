@@ -14,6 +14,9 @@
     <div class="slider-carousel">
         <div class="single-item">
             <img src="{% static 'mainapp/images/turkab-slider-1.png' %}" alt="First slide">
+            <!--
+            <img src="{% static 'mainapp/images/turkkab-resim-mobil.png' %}" alt="First slide">
+            -->
            <div class="overlay"></div>
             <div class="container-parent">
                 <div class="container">
@@ -24,12 +27,13 @@
                        <span class="subheading">Türk Kadın Akademisyenler Birliği</span>
                         -->
                         </span></h1>
-                        <p>TÜRKKAB, Türkiye Cumhuriyeti Devleti’nin temel ilkelerine bağlı, devletine, milletine ve insanlığa hizmet etmeyi gaye edinen kadın akademisyenlerin oluşturduğu bir sivil toplum kuruluşudur.</p>
-                        <a href="#" class="more-stories">Daha Fazlası <i class="ion-android-arrow-forward"></i></a>
+
                     </div>
                 </div>
             </div>
         </div><!--/.single-item -->
+
+        <!--
         <div class="single-item">
             <img src="{% static 'mainapp/images/turkab-slider-2.png' %}" alt="First slide">
            <div class="overlay"></div>
@@ -44,7 +48,8 @@
                     </div>
                 </div>
             </div>
-        </div><!--/.single-item -->
+        </div>
+        -->
 
     </div>
 </section>
@@ -57,7 +62,7 @@
                 <div class="col-md-6">
                     
                     <div class="section-heading section-padding">
-                        <h2><span>Son Gelişmeler</span>Son Haberler</h2>
+                        <h2><span></span>Haberler</h2>
                     </div>
 
                     <div class="row">
@@ -67,7 +72,7 @@
                             
                                     <div class="news-text">
                                         <h3><a href="{% url 'haberdetay' haberslug=haber.haber_slug %}">{{ haber.haber_name | truncatechars_html:100 }}</a></h3>
-                                        <p>{{ haber.haber_icerik |safe|truncatechars_html:200|linebreaks }}</p>
+                                        <p>{{ haber.haber_icerik |safe|truncatechars_html:50|linebreaks }}</p>
                                     </div>
                                     <a href="{% url 'haberdetay' haberslug=haber.haber_slug %}" class="read-more-icon"><span>+</span></a>
                                 </div><!--/.news-item-->
@@ -80,7 +85,7 @@
                 <div class="col-md-6">
 
                         <div class="section-heading section-padding">
-                            <h2><span>Son Gelişmeler</span>Son Duyurular</h2>
+                            <h2><span></span>Duyurular</h2>
                         </div>
 
                         <div class="row">
@@ -90,7 +95,7 @@
                                 
                                         <div class="news-text">
                                             <h3><a href="{% url 'duyurudetay' duyuruslug=duyuru.duyuru_slug %}">{{ duyuru.duyuru_name | truncatechars_html:100 }}</a></h3>
-                                            <p>{{ duyuru.duyuru_icerik |safe|truncatechars_html:200|linebreaks }}</p>
+                                            <p>{{ duyuru.duyuru_icerik |safe|truncatechars_html:50|linebreaks }}</p>
                                         </div>
                                         <a href="{% url 'duyurudetay' duyuruslug=duyuru.duyuru_slug %}" class="read-more-icon"><span>+</span></a>
                                     </div><!--/.news-item-->
